@@ -22,7 +22,7 @@ import styled from '@emotion/styled';
 import { useState } from "react";
 
 export const modalState = atom<boolean>({
-  key: 'modal1State',
+  key: 'modalState',
   default: false,
 });
 const navList = [
@@ -38,8 +38,8 @@ export default function Sidebar() {
   const name: string = "이효준";
   const club: string = "아라";
 
-  const [active1, Setactive] = useState("home");
-  const [modal1,Setmodal1] =useRecoilState(modalState);
+  const [active, setActive] = useState("home");
+  const [modal,setModal] =useRecoilState(modalState);
 
 
 
@@ -55,7 +55,7 @@ export default function Sidebar() {
         </Profile> */}
         <Profile>
         <Profileimg src={Gologin} alt="프로필" />
-          <Gobutton onClick={() => Setmodal1(true)}>
+          <Gobutton onClick={() => setModal(true)}>
             로그인
           </Gobutton>
         </Profile>
@@ -63,14 +63,14 @@ export default function Sidebar() {
           {navList.map((nav) => (
             <NavItem
               key={nav.key}
-              active={active1 === nav.key}
-              onClick={() => Setactive(nav.key)}
+              active={active === nav.key}
+              onClick={() => setActive(nav.key)}
             >
               <Iconimg
-                src={active1 === nav.key ? nav.activeIcon : nav.icon}
+                src={active === nav.key ? nav.activeIcon : nav.icon}
                 alt={nav.label}
               />
-              <IconText active={active1 === nav.key}>
+              <IconText active={active === nav.key}>
                 {nav.label}
               </IconText>
             </NavItem>
@@ -144,7 +144,7 @@ const Nav = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 50px;
+  margin-top: 20%;
 `;
 
 const NavItem = styled.div<{ active?: boolean }>`
@@ -178,7 +178,6 @@ const Floor = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-left: 10px;
 `;
 const Gobutton=styled.div`
   user-select: none;
