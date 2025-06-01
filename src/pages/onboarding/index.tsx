@@ -19,5 +19,5 @@ const King =styled.div`
     height: 100vh;
     display: flex;
     margin-left: 220px;
-
+    position: fixed;
 `;
