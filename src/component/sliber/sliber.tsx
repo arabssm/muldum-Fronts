@@ -72,7 +72,7 @@ const Ddate=styled.div`
   position: absolute;
   font-size: 5rem;
   font-weight: semibold;  
-  top: 23%;
+  top: 27%;
   left: 75%;
   width: 400px;
 `;
@@ -88,7 +88,7 @@ const High = styled.div`
 const SlideWrapper = styled.div`
   position: relative;   
   width: 80%;
-  height: 200px;       
+  height: 300px;       
   overflow: hidden;     
   margin: 20px auto;    
   border-radius: 12px;
@@ -97,7 +97,7 @@ const SlideWrapper = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.6);
 `;
 const Legendimg = styled.img`
   position: absolute;   
@@ -111,21 +111,21 @@ const Title = styled.div`
  position: absolute;
   font-size: 2.5rem;
   font-weight: bold;  
-  top: 12%;
-  left: 3%;
+  top: 15%;
+  left: 4%;
   width: 400px;
 `;
 
 const SubTitle = styled.div`
-  font-size: 1rem;
+  font-size: 1.5rem;
   position: absolute;
-  left: 3%;
-  top:70%;
+  left: 4%;
+  top:69%;
 `;
 
 const Date = styled.div`
-  font-size: 1rem;
+  font-size: 1.5rem;
   position: absolute;
-  left: 3%;
+  left: 4%;
   top:57%;
 `;
