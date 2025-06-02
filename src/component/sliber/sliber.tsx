@@ -78,8 +78,8 @@ const Ddate=styled.div`
 `;
 const High = styled.div`
   width: 75%;
-  margin-left: 60px;
-  margin-top: 50px;
+  margin-left: 40px;
+  margin-top: 25px;
   border-radius: 12px;
   overflow: hidden;
 `;
@@ -88,7 +88,7 @@ const High = styled.div`
 const SlideWrapper = styled.div`
   position: relative;   
   width: 80%;
-  height: 300px;       
+  height: 220px;       
   overflow: hidden;     
   margin: 20px auto;    
   border-radius: 12px;

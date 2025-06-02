@@ -6,10 +6,11 @@ import styled from '@emotion/styled';
 
 import emailIcon from '../../../assets/login/email.svg';
 import passwordIcon from '../../../assets/login/password.svg';
+import checkIcon from '../../../assets/login/ check.svg';
+
 
 export default function LoginModal() {
   const setModalOpen = useSetRecoilState(whereismypasswordModalState);
-
   return (
     <>
       <Overlay onClick={() => setModalOpen(false)} />
@@ -26,13 +27,26 @@ export default function LoginModal() {
         </InputWrapper>
 
         <InputWrapper>
-          <IconImg src={passwordIcon} alt="비밀번호 아이콘" />
+          <IconImg src={checkIcon} alt="check icon" />
           <StyledInput
-            type="password"
-            placeholder="비밀번호"
+            type="text"
+            placeholder="인증번호 인증"
           />
         </InputWrapper>
-
+        <InputWrapper>
+          <IconImg src={passwordIcon} alt="check icon" />
+          <StyledInput
+            type="text"
+            placeholder="인증번호 인증"
+          />
+        </InputWrapper>
+        <InputWrapper>
+          <IconImg src={passwordIcon} alt="check icon" />
+          <StyledInput
+            type="text"
+            placeholder="인증번호 인증"
+          />
+        </InputWrapper>
         <LoginButton onClick={() => setModalOpen(false)}>
           로그인
         </LoginButton>
