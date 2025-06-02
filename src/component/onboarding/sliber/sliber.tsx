@@ -1,8 +1,8 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from '@emotion/styled'
-import img1 from '../../assets/onboarding/background.svg'
-import img2 from '../../assets/onboarding/background2.svg'
+import img1 from '../../../assets/onboarding/background.svg'
+import img2 from '../../../assets/onboarding/background2.svg'
 import Slider from "react-slick";
 
 import { useState } from 'react';
@@ -78,8 +78,6 @@ const Ddate=styled.div`
 `;
 const High = styled.div`
   width: 75%;
-  margin-left: 40px;
-  margin-top: 25px;
   border-radius: 12px;
   overflow: hidden;
 `;

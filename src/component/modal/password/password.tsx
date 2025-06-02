@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { whereismypasswordModalState } from '../../../atom/Modal';
 import styled from '@emotion/styled';
@@ -11,46 +11,103 @@ import checkIcon from '../../../assets/login/ check.svg';
 
 export default function LoginModal() {
   const setModalOpen = useSetRecoilState(whereismypasswordModalState);
+  const [step, setStep] = useState<number>(1);
+  function Change(){
+    setStep(2);
+  }
   return (
     <>
-      <Overlay onClick={() => setModalOpen(false)} />
-      <ModalContainer>
-        <Title>password</Title>
+    {step === 1 && (
+  <>
+    <Overlay onClick={() => setModalOpen(false)} />
+    <ModalContainer>
+      <Title>비밀번호 변경</Title>
 
-        <InputWrapper>
-          <IconImg src={emailIcon} alt="이메일 아이콘" />
-          <StyledInput
-            type=""
-            placeholder="이메일"
-            autoFocus
-          />
-        </InputWrapper>
+      <InputWrapper>
+        <IconImg src={emailIcon} alt="이메일 아이콘" />
+        <StyledInput
+          type="email"
+          placeholder="이메일"
+          autoFocus
+        />
+      </InputWrapper>
 
-        <InputWrapper>
-          <IconImg src={checkIcon} alt="check icon" />
-          <StyledInput
-            type="text"
-            placeholder="인증번호 인증"
-          />
-        </InputWrapper>
-        <InputWrapper>
-          <IconImg src={passwordIcon} alt="check icon" />
-          <StyledInput
-            type="text"
-            placeholder="인증번호 인증"
-          />
-        </InputWrapper>
-        <InputWrapper>
-          <IconImg src={passwordIcon} alt="check icon" />
-          <StyledInput
-            type="text"
-            placeholder="인증번호 인증"
-          />
-        </InputWrapper>
-        <LoginButton onClick={() => setModalOpen(false)}>
-          로그인
-        </LoginButton>
-      </ModalContainer>
+      <InputWrapper>
+        <IconImg src={checkIcon} alt="인증 아이콘" />
+        <StyledInput
+          type="text"
+          placeholder="인증번호 입력"
+        />
+      </InputWrapper>
+
+      <InputWrapper>
+        <IconImg src={passwordIcon} alt="비밀번호 아이콘" />
+        <StyledInput
+          type="password"
+          placeholder="새 비밀번호"
+        />
+      </InputWrapper>
+
+      <InputWrapper>
+        <IconImg src={passwordIcon} alt="비밀번호 확인 아이콘" />
+        <StyledInput
+          type="password"
+          placeholder="비밀번호 확인"
+        />
+      </InputWrapper>
+
+      <LoginButton onClick={Change}>
+        비밀번호 변경
+      </LoginButton>
+    </ModalContainer>
+  </>
+)}
+{step === 2 && (
+  <>
+    <Overlay onClick={() => setModalOpen(false)} />
+    <ModalContainer>
+      <Title>비밀번호 변경</Title>
+
+      <InputWrapper>
+        <IconImg src={emailIcon} alt="이메일 아이콘" />
+        <StyledInput
+          type="email"
+          placeholder="이메일"
+          autoFocus
+        />
+      </InputWrapper>
+
+      <InputWrapper>
+        <IconImg src={checkIcon} alt="인증 아이콘" />
+        <StyledInput
+          type="text"
+          placeholder="인증번호 입력"
+        />
+      </InputWrapper>
+
+      <InputWrapper>
+        <IconImg src={passwordIcon} alt="비밀번호 아이콘" />
+        <StyledInput
+          type="password"
+          placeholder="새 비밀번호"
+        />
+      </InputWrapper>
+
+      <InputWrapper>
+        <IconImg src={passwordIcon} alt="비밀번호 확인 아이콘" />
+        <StyledInput
+          type="password"
+          placeholder="비밀번호 확인"
+        />
+      </InputWrapper>
+
+      <LoginButton onClick={Change}>
+        비밀번호 변경
+      </LoginButton>
+    </ModalContainer>
+  </>
+)}
+
     </>
   );
 }
