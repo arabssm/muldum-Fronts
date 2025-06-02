@@ -20,7 +20,8 @@ import {
 import { atom, useRecoilState } from 'recoil';
 import styled from '@emotion/styled';
 import { useState } from "react";
-
+import { useSetRecoilState } from 'recoil'
+import { loginModalState } from '../../atom/Modal'
 export const modalState = atom<boolean>({
   key: 'modalState',
   default: false,
@@ -39,9 +40,7 @@ export default function Sidebar() {
   const club: string = "아라";
 
   const [active, setActive] = useState("home");
-  const [modal,setModal] =useRecoilState(modalState);
-
-
+  const setModalOpen = useSetRecoilState(loginModalState)
 
   return (
     <>
@@ -54,8 +53,8 @@ export default function Sidebar() {
           </ProfileTextGroup>
         </Profile> */}
         <Profile>
-        <Profileimg src={Gologin} alt="프로필" />
-          <Gobutton onClick={() => setModal(true)}>
+        <Profileimg src={Gologin} alt="프로필"  onClick={() => setModalOpen(true)}/>
+          <Gobutton onClick={() => setModalOpen(true)}>
             로그인
           </Gobutton>
         </Profile>
@@ -181,4 +180,5 @@ const Floor = styled.div`
 `;
 const Gobutton=styled.div`
   user-select: none;
+  cursor: pointer;
 `;
