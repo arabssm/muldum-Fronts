@@ -7,6 +7,7 @@ import LoginModal from '../../component/modal/login/login'
 import Sidebar from '../../component/sibebar/sidebar'
 import Slbe from '../../component/onboarding/sliber/sliber'
 import Menu from '../../component/onboarding/menu/menu'
+import Notice from '../../component/onboarding/notice/notice'
 
 import PasswordModal from '../../component/modal/password/password'
 
@@ -20,6 +21,7 @@ export default function Home(){
     <King>
         <Slbe/>
         <Menu />
+        <Notice />
     </King>
     {isOpen && <LoginModal />}
     {isOpen2 && <PasswordModal />}
@@ -31,6 +33,7 @@ const King =styled.div`
     height: 100vh;
     display: flex;
     margin-left: 15%;
-    position: fixed;
+
     flex-direction: column;
+    gap: 50px;
 `;

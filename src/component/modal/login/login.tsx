@@ -1,7 +1,7 @@
-
+// LoginModal.tsx
 import React from 'react';
 import { useSetRecoilState } from 'recoil';
-import { loginModalState,whereismypasswordModalState } from '../../../atom/Modal';
+import { loginModalState, whereismypasswordModalState } from '../../../atom/Modal';
 import styled from '@emotion/styled';
 
 import emailIcon from '../../../assets/login/email.svg';
@@ -10,10 +10,12 @@ import passwordIcon from '../../../assets/login/password.svg';
 export default function LoginModal() {
   const setModalOpen = useSetRecoilState(loginModalState);
   const setModalOpen1 = useSetRecoilState(whereismypasswordModalState);
-  function Cake(){
-    setModalOpen1(true)
-    setModalOpen(false)
+
+  function Cake() {
+    setModalOpen1(true);
+    setModalOpen(false);
   }
+
   return (
     <>
       <Overlay onClick={() => setModalOpen(false)} />
@@ -40,14 +42,18 @@ export default function LoginModal() {
         <LoginButton onClick={() => setModalOpen(false)}>
           로그인
         </LoginButton>
+
         <GoPassword>
-          <A onClick={()=>Cake()
-          }>비밀번호 변경하러 가기</A>
+          <PasswordLink onClick={Cake}>
+            비밀번호 변경하러 가기
+          </PasswordLink>
         </GoPassword>
       </ModalContainer>
     </>
   );
 }
+
+// ---------- Styled Components ----------
 
 const Overlay = styled.div`
   position: fixed;
@@ -56,15 +62,17 @@ const Overlay = styled.div`
   backdrop-filter: blur(8px);
   z-index: 1000;
 `;
+
 const ModalContainer = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 380px;               
+  width: 400px;          /* 고정 너비 */
+  height: auto;          /* 콘텐츠에 따라 높이 자동 조정 */
   background-color: #ffffff;
   border-radius: 16px;
-  padding: 32px 24px;        
+  padding: 32px 24px;    /* 상하 32px, 좌우 24px */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   z-index: 1001;
   display: flex;
@@ -77,13 +85,13 @@ const Title = styled.h2`
   font-size: 22px;
   font-weight: 600;
   color: #333333;
-  margin-bottom: 24px;
+  margin-bottom: 24px;   /* 제목과 첫 입력칸 사이 여유 */
 `;
 
 const InputWrapper = styled.div`
   position: relative;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 20px;   /* 입력칸 간 세로 간격 */
 `;
 
 const IconImg = styled.img`
@@ -95,11 +103,12 @@ const IconImg = styled.img`
   height: 20px;
   opacity: 0.6;
 `;
+
 const StyledInput = styled.input`
   width: 100%;
-  box-sizing: border-box;       
-  height: 48px;
-  padding: 0 12px 0 44px;      
+  box-sizing: border-box;
+  height: 48px;               /* 입력창 높이 */
+  padding: 0 12px 0 44px;     /* 왼쪽 아이콘 공간 확보(44px), 우측 12px 여백 */
   border: none;
   border-radius: 8px;
   background-color: #f0f0f0;
@@ -118,13 +127,13 @@ const StyledInput = styled.input`
 `;
 
 const LoginButton = styled.button`
-  width: 100%;
-  height: 48px;
-  margin-top: 8px;
+  width: 80%;                   /* 버튼 너비를 컨테이너 대비 80%로 */
+  height: 48px;                 /* 버튼 높이 */
+  margin-top: 24px;             /* 입력창과 버튼 사이 간격 */
   background-color: #f2a161;
   color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 32px;          /* 완만한 둥근 모서리 */
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -137,9 +146,18 @@ const LoginButton = styled.button`
   }
 `;
 
-const GoPassword=styled.div`
-  background-color: red;
+const GoPassword = styled.div`
+  margin-top: 12px;   
 `;
-const A=styled.a`
-  color: green;
+
+const PasswordLink = styled.a`
+  font-size: 14px;
+  color: #707070;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: #333333;
+    text-decoration: underline;
+  }
 `;

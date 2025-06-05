@@ -45,13 +45,13 @@ export default function Sidebar() {
   return (
     <>
       <Container>
-        {/* <Profile>
-          <Profileimg src={profile} alt="프로필" />
-          <ProfileTextGroup>
+      {/* <Profile>
+        <Profileimg src={profile} alt="프로필" />
+        <ProfileTextGroup>
           <Profileclub>{club}</Profileclub>
-            <Profilename>{name}</Profilename>
-          </ProfileTextGroup>
-        </Profile> */}
+          <Profilename>{name}</Profilename>
+        </ProfileTextGroup>
+      </Profile> */}
         <Profile>
         <Profileimg src={Gologin} alt="프로필"  onClick={() => setModalOpen(true)}/>
           <Gobutton onClick={() => setModalOpen(true)}>
@@ -109,8 +109,9 @@ const Container = styled.div`
 
 const Profile = styled.div`
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 8px;    /* 텍스트와 아이콘 사이 간격을 8px로 축소 */
+  margin: 0;
 `;
 
 const Profileimg = styled.img`
@@ -122,21 +123,25 @@ const Profileimg = styled.img`
 const ProfileTextGroup = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 5px;
 `;
+
 
 const Profileclub = styled.p`
   font-size: 12px;
   color: #b0b0b0;
   margin: 0;
+  padding: 0;
 `;
 
 const Profilename = styled.p`
   font-size: 14px;
   font-weight: bold;
   color: #1D1D1D;
-  padding-top: 8px;
-  width: fit-content;
+  margin: 0;
+  padding: 0;
 `;
+
 
 
 const Nav = styled.div`
@@ -181,4 +186,5 @@ const Floor = styled.div`
 const Gobutton=styled.div`
   user-select: none;
   cursor: pointer;
+  margin-top: 5%;
 `;
