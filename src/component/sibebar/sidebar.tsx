@@ -20,9 +20,10 @@ import {
 import { atom, useRecoilState } from 'recoil';
 import styled from '@emotion/styled';
 import { useState } from "react";
-
+import { useSetRecoilState } from 'recoil'
+import { loginModalState } from '../../atom/Modal'
 export const modalState = atom<boolean>({
-  key: 'modal1State',
+  key: 'modalState',
   default: false,
 });
 const navList = [
@@ -38,24 +39,22 @@ export default function Sidebar() {
   const name: string = "이효준";
   const club: string = "아라";
 
-  const [active1, Setactive] = useState("home");
-  const [modal1,Setmodal1] =useRecoilState(modalState);
-
-
+  const [active, setActive] = useState("home");
+  const setModalOpen = useSetRecoilState(loginModalState)
 
   return (
     <>
       <Container>
-        {/* <Profile>
-          <Profileimg src={profile} alt="프로필" />
-          <ProfileTextGroup>
+      {/* <Profile>
+        <Profileimg src={profile} alt="프로필" />
+        <ProfileTextGroup>
           <Profileclub>{club}</Profileclub>
-            <Profilename>{name}</Profilename>
-          </ProfileTextGroup>
-        </Profile> */}
+          <Profilename>{name}</Profilename>
+        </ProfileTextGroup>
+      </Profile> */}
         <Profile>
-        <Profileimg src={Gologin} alt="프로필" />
-          <Gobutton onClick={() => Setmodal1(true)}>
+        <Profileimg src={Gologin} alt="프로필"  onClick={() => setModalOpen(true)}/>
+          <Gobutton onClick={() => setModalOpen(true)}>
             로그인
           </Gobutton>
         </Profile>
@@ -63,14 +62,14 @@ export default function Sidebar() {
           {navList.map((nav) => (
             <NavItem
               key={nav.key}
-              active={active1 === nav.key}
-              onClick={() => Setactive(nav.key)}
+              active={active === nav.key}
+              onClick={() => setActive(nav.key)}
             >
               <Iconimg
-                src={active1 === nav.key ? nav.activeIcon : nav.icon}
+                src={active === nav.key ? nav.activeIcon : nav.icon}
                 alt={nav.label}
               />
-              <IconText active={active1 === nav.key}>
+              <IconText active={active === nav.key}>
                 {nav.label}
               </IconText>
             </NavItem>
@@ -110,8 +109,9 @@ const Container = styled.div`
 
 const Profile = styled.div`
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 8px;    /* 텍스트와 아이콘 사이 간격을 8px로 축소 */
+  margin: 0;
 `;
 
 const Profileimg = styled.img`
@@ -123,28 +123,32 @@ const Profileimg = styled.img`
 const ProfileTextGroup = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 5px;
 `;
+
 
 const Profileclub = styled.p`
   font-size: 12px;
   color: #b0b0b0;
   margin: 0;
+  padding: 0;
 `;
 
 const Profilename = styled.p`
   font-size: 14px;
   font-weight: bold;
   color: #1D1D1D;
-  padding-top: 8px;
-  width: fit-content;
+  margin: 0;
+  padding: 0;
 `;
+
 
 
 const Nav = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 50px;
+  margin-top: 20%;
 `;
 
 const NavItem = styled.div<{ active?: boolean }>`
@@ -178,8 +182,9 @@ const Floor = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-left: 10px;
 `;
 const Gobutton=styled.div`
   user-select: none;
+  cursor: pointer;
+  margin-top: 5%;
 `;

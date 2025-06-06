@@ -7,13 +7,15 @@ import {
 } from "react-router-dom";
 
 import {RecoilRoot} from 'recoil';
-import Sidebar from './component/sibebar/sidebar'
+import Home from './pages/onboarding/index'
 import './font.css';
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 createRoot(document.getElementById('root')!).render(
   <RecoilRoot>
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Sidebar/>} />
+          <Route path="/" element={<Home/>} />
         </Routes>
     </BrowserRouter>
   </RecoilRoot>
