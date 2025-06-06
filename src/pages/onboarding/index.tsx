@@ -33,7 +33,6 @@ const King =styled.div`
     height: 100vh;
     display: flex;
     margin-left: 15%;
-
     flex-direction: column;
     gap: 50px;
 `;

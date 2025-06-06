@@ -6,7 +6,7 @@ export default function Notice() {
     <>
     <He />
     <Boxcontainer>
-      <Box title="happy" date="2025-02-01"/>
+      <Box idx="1" title="happy" date="2025-02-01"/>
     </Boxcontainer>
     </>
   );
@@ -15,4 +15,5 @@ export default function Notice() {
 
 const Boxcontainer=styled.div`
   display: flex;
+  width: 100%;
 `;

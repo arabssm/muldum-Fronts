@@ -100,7 +100,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #D1D1D1;
-  width: 220px;
+  width: 13%;
   height: 100vh;
   padding: 30px 0 40px 16px;
   box-sizing: border-box;
