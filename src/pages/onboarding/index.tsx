@@ -35,4 +35,5 @@ const King =styled.div`
     margin-left: 15%;
     flex-direction: column;
     gap: 50px;
+    position: fixed;
 `;
