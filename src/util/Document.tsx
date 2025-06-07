@@ -22,6 +22,17 @@ export default function makeDocument(text: string = ''): JSX.Element | null {
       pattern: /<강조>\n?([\s\S]*?)\n?<\/강조>/,
       component: content => <strong>{content}</strong>,
     },
+    {
+        pattern: /<이미지\s+src="(.+?)"\s*\/?>/,
+    component: (url) =>
+      typeof url === 'string' ? (
+        <img
+          src={url}
+          alt="추가된이미지"
+          style={{ width: '100%', objectFit: 'cover' }}
+        />
+      ) : null,
+    }
   ];
 
   function parseText(input: string): ReactNode {
