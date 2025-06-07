@@ -1,23 +1,42 @@
-import styled from "@emotion/styled";
-import Searchicon from "../../../assets/onboarding/search.svg";
-export default function Header11(){
-return(
+import React from 'react';
+import styled from '@emotion/styled';
+import Searchicon from '../../../assets/onboarding/search.svg';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+interface HeaderProps {
+  value: string;
+  onChange: (v: string) => void;
+}
+
+export default function Header11({ value, onChange }: HeaderProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const showViewAll = location.pathname === '/';
+
+  return (
     <Header>
       <Title>공지사항</Title>
       <SearchWrapper>
         <SearchIcon src={Searchicon} alt="검색 아이콘" />
-        <SearchInput placeholder="공지사항 검색" />
-        <ViewAll>전체보기</ViewAll>
+        <SearchInput
+          placeholder="공지사항 검색"
+          value={value}
+          onChange={e => onChange(e.target.value)}
+        />
+        {showViewAll && (
+          <ViewAll onClick={() => navigate('/notice')}>
+            전체보기
+          </ViewAll>
+        )}
       </SearchWrapper>
     </Header>
-)
+  );
 }
+
 const Header = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 0;
-  box-sizing: border-box;
 `;
 
 const Title = styled.h2`
@@ -45,23 +64,17 @@ const SearchIcon = styled.img`
 `;
 
 const SearchInput = styled.input`
-  flex: 1 1 auto;
+  flex: 1;
   border: none;
   background: transparent;
   font-size: 14px;
   color: #909090;
   padding: 0;
-
-  &::placeholder {
-    color: #909090;
-  }
-
-  &:focus {
-    outline: none;
-  }
+  &::placeholder { color: #909090; }
+  &:focus { outline: none; }
 `;
 
-const ViewAll = styled.span`
+const ViewAll = styled.div`
   position: absolute;
   bottom: -28px;
   right: 0;

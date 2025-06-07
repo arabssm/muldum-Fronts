@@ -22,26 +22,26 @@ import styled from '@emotion/styled';
 import { useState } from "react";
 import { useSetRecoilState } from 'recoil'
 import { loginModalState } from '../../atom/Modal'
+import { useNavigate,useLocation } from 'react-router-dom';
 export const modalState = atom<boolean>({
   key: 'modalState',
   default: false,
 });
 const navList = [
-  { key: 'home', label: '홈', icon: home, activeIcon: Chome },
-  { key: 'ranking', label: '역대 동아리', icon: ranking, activeIcon: Cranking },
-  { key: 'calendar', label: '캘린더', icon: calender, activeIcon: Ccalender },
-  { key: 'check', label: '월말평가', icon: check, activeIcon: Ccheck },
-  { key: 'object', label: '물품관리', icon: object, activeIcon: Cobject },
-  { key: 'alert', label: '알림', icon: alerticon, activeIcon: Calerticon },
+  { key: 'home', label: '홈', icon: home, activeIcon: Chome ,url:'/'},
+  { key: 'ranking', label: '역대 동아리', icon: ranking, activeIcon: Cranking,url:'/ranking' },
+  { key: 'calendar', label: '캘린더', icon: calender, activeIcon: Ccalender ,url:'/calender'},
+  { key: 'check', label: '월말평가', icon: check, activeIcon: Ccheck ,url:'/check'},
+  { key: 'object', label: '물품관리', icon: object, activeIcon: Cobject ,url:'/object'},
+  { key: 'notice', label: '공지사항', icon: alerticon, activeIcon: Calerticon,url:'/notice' },
 ];
 
 export default function Sidebar() {
   const name: string = "이효준";
   const club: string = "아라";
-
-  const [active, setActive] = useState("home");
+  const location = useLocation();
   const setModalOpen = useSetRecoilState(loginModalState)
-
+  const navigate=useNavigate();
   return (
     <>
       <Container>
@@ -59,21 +59,24 @@ export default function Sidebar() {
           </Gobutton>
         </Profile>
         <Nav>
-          {navList.map((nav) => (
+        {navList.map(nav => {
+          const isActive =
+          nav.url === '/'
+            ? location.pathname === '/'
+            : location.pathname.startsWith(nav.url);
+      
+
+          return (
             <NavItem
               key={nav.key}
-              active={active === nav.key}
-              onClick={() => setActive(nav.key)}
+              active={isActive}
+              onClick={() => navigate(nav.url)}
             >
-              <Iconimg
-                src={active === nav.key ? nav.activeIcon : nav.icon}
-                alt={nav.label}
-              />
-              <IconText active={active === nav.key}>
-                {nav.label}
-              </IconText>
+              <Iconimg src={isActive ? nav.activeIcon : nav.icon} />
+              <IconText active={isActive}>{nav.label}</IconText>
             </NavItem>
-          ))}
+          );
+        })}
         </Nav>
 
         <Floor>
@@ -100,7 +103,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #D1D1D1;
-  width: 220px;
+  width: 13%;
   height: 100vh;
   padding: 30px 0 40px 16px;
   box-sizing: border-box;
