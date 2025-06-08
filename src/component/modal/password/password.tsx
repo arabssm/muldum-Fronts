@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { whereismypasswordModalState } from '../../../atom/Modal';
 import styled from '@emotion/styled';
@@ -7,11 +7,25 @@ import styled from '@emotion/styled';
 import emailIcon from '../../../assets/login/email.svg';
 import passwordIcon from '../../../assets/login/password.svg';
 import checkIcon from '../../../assets/login/ check.svg';
-
+import hh from '../../../assets/login/key.svg'
 
 export default function LoginModal() {
   const setModalOpen = useSetRecoilState(whereismypasswordModalState);
   const [step, setStep] = useState<number>(1);
+  const [count,setCount]=useState<number>(5);
+  useEffect(() => {
+    if (step !== 2) return;
+    setCount(5);
+    const timer = setInterval(() => {
+      setCount((c) => c - 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [step]);
+  useEffect(() => {
+    if (count <= 0 && step === 2) {
+      setModalOpen(false);
+    }
+  }, [count, step, setModalOpen]);
   function Change(){
     setStep(2);
   }
@@ -66,44 +80,12 @@ export default function LoginModal() {
   <>
     <Overlay onClick={() => setModalOpen(false)} />
     <ModalContainer>
-      <Title>비밀번호 변경</Title>
-
-      <InputWrapper>
-        <IconImg src={emailIcon} alt="이메일 아이콘" />
-        <StyledInput
-          type="email"
-          placeholder="이메일"
-          autoFocus
-        />
-      </InputWrapper>
-
-      <InputWrapper>
-        <IconImg src={checkIcon} alt="인증 아이콘" />
-        <StyledInput
-          type="text"
-          placeholder="인증번호 입력"
-        />
-      </InputWrapper>
-
-      <InputWrapper>
-        <IconImg src={passwordIcon} alt="비밀번호 아이콘" />
-        <StyledInput
-          type="password"
-          placeholder="새 비밀번호"
-        />
-      </InputWrapper>
-
-      <InputWrapper>
-        <IconImg src={passwordIcon} alt="비밀번호 확인 아이콘" />
-        <StyledInput
-          type="password"
-          placeholder="비밀번호 확인"
-        />
-      </InputWrapper>
-
-      <LoginButton onClick={Change}>
-        비밀번호 변경
-      </LoginButton>
+      <DoneIcon src={hh} alt="완료 아이콘" />
+      <DoneTitle>비밀번호 변경이 완료되었습니다</DoneTitle>
+      <DoneMessage>다른 곳을 누르거나 5초 동안 기다리면</DoneMessage>
+      <DoneMessage> 메인화면으로 이동합니다</DoneMessage>
+      
+      <Countdown>{count}</Countdown>
     </ModalContainer>
   </>
 )}
@@ -198,4 +180,36 @@ const LoginButton = styled.button`
   &:active {
     background-color: #d88440;
   }
+`;
+
+const DoneIcon = styled.img`
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+`;
+
+
+const DoneTitle = styled.h3`
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e1e1e;
+  text-align: center;
+  margin: 0 0 12px;
+`;
+
+
+const DoneMessage = styled.p`
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+`;
+
+
+const Countdown = styled.div`
+  font-size: 24px;
+  font-weight: 600;
+  color: #ddd;
+  margin-top: 16px;
 `;
