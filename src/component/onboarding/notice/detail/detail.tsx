@@ -56,9 +56,11 @@ export default function Detail() {
     <Wrapper>
       <Sidebar />
       <ContentArea>
+        <Up>
             <Title>{doc.title}</Title>
             <Subtitle>{date}</Subtitle>
             <Subtitle>{doc.teacher}</Subtitle>
+            </Up>
         <Body>
           {makeDocument(doc.content)}
         </Body>
@@ -70,9 +72,18 @@ export default function Detail() {
 
 
 const Wrapper = styled.div`
-  position: relative;
   height: 100vh;
+  position: fixed;
 `;
+const Up = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px; 
+  & > * {
+    margin: 0; 
+  }
+`;
+
 
 const ContentArea = styled.div`
   margin-left: 240px;
