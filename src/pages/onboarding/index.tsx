@@ -30,10 +30,11 @@ export default function Home(){
 }
 const King =styled.div`
     width: 100%;
+    /* width: calc(100% - 240px); */
     height: 100vh;
     display: flex;
     margin-left: 15%;
     flex-direction: column;
     gap: 50px;
-    position: fixed;
+    position: fixed
 `;
