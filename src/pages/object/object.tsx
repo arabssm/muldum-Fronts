@@ -72,7 +72,7 @@ export default function Object() {
   };
 
   return (
-    <PageWrapper>
+    <King>
       <Sidebar />
       <Container>
         <Main>
@@ -151,23 +151,26 @@ export default function Object() {
           <FooterLink>전체보기</FooterLink>
         </Footer>
       </Container>
-    </PageWrapper>
+    </King>
   );
 }
 
 
-const PageWrapper = styled.div`
-  display: flex;
-  height: 100vh;
-`;
+const King =styled.div`
+    width: 85%;
+    height: 100vh;
+    display: flex;
+    margin-left: 15%;
+    flex-direction: column;
+    gap: 50px;
 
+`;
 const Container = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: calc(100% - 240px);
-  margin-left: 220px;
+
   padding: 32px 5%;
   box-sizing: border-box;
 `;

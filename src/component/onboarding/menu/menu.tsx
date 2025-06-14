@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  width: 90%;
   box-sizing: border-box;
 `;
 
@@ -65,7 +65,7 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(100%, 1fr));
   row-gap: 16px;
-  column-gap: -10px;
+  column-gap: 10px;
   width: 100%;
   max-width: 640px;
 `;

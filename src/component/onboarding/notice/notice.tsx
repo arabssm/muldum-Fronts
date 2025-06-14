@@ -50,9 +50,8 @@ export default function Notice() {
 }
 
 const BoxContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 78%;
-  padding: 16px 0;
 `;

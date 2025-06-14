@@ -3,18 +3,17 @@ import Sidebar from "../../component/sibebar/sidebar";
 import styled from "@emotion/styled";
 export default function Notice1(){
     return(
-        <Container>
+        <King>
         <Sidebar />
         <Notice />
-        </Container>
+        </King>
     );
 }
-const Container =styled.div`
-    width: 100%;
+const King =styled.div`
+    width: 85%;
     height: 100vh;
     display: flex;
     margin-left: 15%;
     flex-direction: column;
     gap: 50px;
-    position: fixed;
 `;

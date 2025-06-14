@@ -32,17 +32,17 @@ export default function Header11({ value, onChange }: HeaderProps) {
     </Header>
   );
 }
-
-const Header = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-`;
+const Header = styled.header`
+   display: flex;
+   justify-content: space-between;  
+   align-items: flex-start;        
+   width: 92%;
+   margin-bottom: 16px;           
+ `;
 
 const Title = styled.h2`
   font-size: 24px;
   color: #1d1d1d;
-  margin-right: 50%;
 `;
 
 const SearchWrapper = styled.div`

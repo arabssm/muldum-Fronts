@@ -20,7 +20,7 @@ const CardContainer = styled.div`
   background: #f8f8f8;     
   border-radius: 12px;       
   padding: 20px 24px;        
-  width: 90%;
+  width: calc(100%-220px);
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   display: flex;

@@ -46,6 +46,7 @@ export default function Sliber(){
     return(
         <>
 				<High>
+          <Wrap>
           <Slider {...settings}>
 						{content.map((item,index)=>(
               <SlideWrapper key={index}>
@@ -59,6 +60,7 @@ export default function Sliber(){
             </SlideWrapper>
 						))}
           </Slider>
+          </Wrap>
 					</High>
         </>
     )
@@ -77,15 +79,17 @@ const Ddate=styled.div`
   width: 400px;
 `;
 const High = styled.div`
-  width: 75%;
+  width: 100%;
   border-radius: 12px;
   overflow: hidden;
 `;
 
-
+const Wrap=styled.div`
+  width: 90%;
+`;
 const SlideWrapper = styled.div`
   position: relative;   
-  width: 80%;
+  width: 30%;
   height: 220px;       
   overflow: hidden;     
   margin: 20px auto;    

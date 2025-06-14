@@ -103,7 +103,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #D1D1D1;
-  width: 13%;
+  width: 12%;
   height: 100vh;
   padding: 30px 0 40px 16px;
   box-sizing: border-box;
@@ -113,7 +113,7 @@ const Container = styled.div`
 const Profile = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 8px;    /* 텍스트와 아이콘 사이 간격을 8px로 축소 */
+  gap: 8px;    
   margin: 0;
 `;
 
