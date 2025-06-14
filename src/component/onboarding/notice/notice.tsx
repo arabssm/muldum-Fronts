@@ -33,9 +33,8 @@ export default function Notice() {
   );
 
   return (
-    <>
+    <BoxContainer>
       <Header11 value={search} onChange={setSearch} />
-      <BoxContainer>
         {filtered.map(notice => (
           <Box
             key={notice.id}
@@ -44,13 +43,12 @@ export default function Notice() {
             date={notice.created_at}
           />
         ))}
-      </BoxContainer>
-    </>
+    </BoxContainer>
   );
 }
 
 const BoxContainer = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   gap: 12px;

@@ -79,13 +79,13 @@ const Ddate=styled.div`
   width: 400px;
 `;
 const High = styled.div`
-  width: 100%;
+  width: 90%;
   border-radius: 12px;
   overflow: hidden;
 `;
 
 const Wrap=styled.div`
-  width: 90%;
+  width: 100%;
 `;
 const SlideWrapper = styled.div`
   position: relative;   

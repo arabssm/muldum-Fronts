@@ -23,11 +23,11 @@ export default function Header11({ value, onChange }: HeaderProps) {
           value={value}
           onChange={e => onChange(e.target.value)}
         />
-        {showViewAll && (
+       
           <ViewAll onClick={() => navigate('/notice')}>
             전체보기
           </ViewAll>
-        )}
+
       </SearchWrapper>
     </Header>
   );
@@ -36,7 +36,7 @@ const Header = styled.header`
    display: flex;
    justify-content: space-between;  
    align-items: flex-start;        
-   width: 92%;
+   width: 100%;
    margin-bottom: 16px;           
  `;
 
@@ -54,7 +54,6 @@ const SearchWrapper = styled.div`
   background-color: #f5f5f5;
   border-radius: 12px;
   padding-left: 12px;
-  margin-right: 16px;
 `;
 
 const SearchIcon = styled.img`

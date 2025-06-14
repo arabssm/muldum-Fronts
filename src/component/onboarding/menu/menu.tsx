@@ -66,6 +66,5 @@ const GridContainer = styled.div`
   grid-template-columns: repeat(2, minmax(100%, 1fr));
   row-gap: 16px;
   column-gap: 10px;
-  width: 100%;
-  max-width: 640px;
+  width: calc(50% - 8px);
 `;

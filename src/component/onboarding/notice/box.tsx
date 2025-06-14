@@ -33,8 +33,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-  width: 90%;
+  width: 100%;
   cursor: pointer;
   background: #fff;
   border-radius: 8px;
@@ -50,10 +49,10 @@ const Left = styled.div`
 const Badge = styled.span`
   background-color: #FF9B62;
   color: #fff;
-  padding: 4px 10px;   
+  padding: 6px 12px;   
   font-size: 12px;       /* 적당한 크기 */
   font-weight: 500;
-  border-radius: 10px;
+  border-radius: 16px;
   line-height: 1;        /* 텍스트가 중간에 위치하도록 */
 `;
 
