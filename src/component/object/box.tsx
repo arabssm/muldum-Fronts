@@ -18,8 +18,6 @@ export default function Box({ request, onReasonChange }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [reason, setReason] = useState(request.reason);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  // 편집 모드 진입 시 textarea에 포커스
   useEffect(() => {
     if (isEditing && textareaRef.current) {
       textareaRef.current.focus();
@@ -58,16 +56,16 @@ export default function Box({ request, onReasonChange }: Props) {
 const Card = styled.div`
   background: #fff;
   border: 1px solid #eee;
+  width: 100%;
   border-radius: 12px;
   margin-bottom: 16px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   overflow: hidden;
 `;
 
 const CardRow = styled.div`
   display: flex;
   align-items: center;
-  padding: 12px 16px;
+  padding: 8px 16px;
   border-bottom: 1px solid #eee;
 `;
 
@@ -95,4 +93,5 @@ const ReasonTextarea = styled.textarea`
   font-size: 14px;
   line-height: 1.5;
   outline: none;
+  padding: 0;
 `;

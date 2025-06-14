@@ -1,16 +1,18 @@
-import Box from './box'
+// component/object/apply.tsx
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import Box from './box';
 import type { Request } from './box';
-export default function apply(){
-    const remaining = 200000;
+
+export default function Apply() {
+  const remaining = 200000;
   const used = 120031;
+
   const [item, setItem] = useState('');
   const [price, setPrice] = useState('');
   const [link, setLink] = useState('');
   const [qty, setQty] = useState(1);
   const [reason, setReason] = useState('');
-
 
   const [requests, setRequests] = useState<Request[]>([
     {
@@ -28,19 +30,19 @@ export default function apply(){
       reason: '실험실 장비 연결용으로 필요합니다.',
     },
     {
-        no: '02',
-        title: 'USB-C 케이블 1m, 2개입',
-        qty: 2,
-        status: '승인완료',
-        reason: '실험실 장비 연결용으로 필요합니다.',
-      },
-      {
-        no: '02',
-        title: 'USB-C 케이블 1m, 2개입',
-        qty: 2,
-        status: '승인완료',
-        reason: '실험실 장비 연결용으로 필요합니다.',
-      },
+      no: '03',
+      title: 'USB-C 케이블 1m, 2개입',
+      qty: 2,
+      status: '승인완료',
+      reason: '실험실 장비 연결용으로 필요합니다.',
+    },
+    {
+      no: '04',
+      title: 'USB-C 케이블 1m, 2개입',
+      qty: 2,
+      status: '승인완료',
+      reason: '실험실 장비 연결용으로 필요합니다.',
+    },
   ]);
 
   const handleReasonChange = (no: string, newReason: string) => {
@@ -48,6 +50,7 @@ export default function apply(){
       rs.map(r => (r.no === no ? { ...r, reason: newReason } : r))
     );
   };
+
   const handleAdd = () => {
     if (!item.trim() || reason.trim().length < 10) {
       alert('물품명과 사유(10자 이상)를 입력하세요.');
@@ -68,116 +71,113 @@ export default function apply(){
     setQty(1);
     setReason('');
   };
-    return(
-<Container>
-        <Main>
-          <Header>
-            <Titles>
-              <h1>전공동아리 물품신청</h1>
-              <h3>전공동아리에 사용할 물품을 신청해요</h3>
-            </Titles>
-            <BudgetBox>
-              <span>남은예산</span>
-              <strong>{remaining.toLocaleString()}</strong>
-              <Used>-{used.toLocaleString()}</Used>
-            </BudgetBox>
-          </Header>
-          <FormSection>
-            <FormSectionHeader>
-              <SectionTitle>물품신청</SectionTitle>
-              <AddButton onClick={handleAdd}>추가하기</AddButton>
-            </FormSectionHeader>
-            <FormRow>
-              <Label>구입물품</Label>
-              <Input
-                placeholder="구입할 물품을 입력해 주세요"
-                value={item}
-                onChange={e => setItem(e.target.value)}
-              />
-              <Label>가격</Label>
-              <Input
-                placeholder="가격을 입력해 주세요"
-                value={price}
-                onChange={e => setPrice(e.target.value)}
-              />
-              <Label>수량</Label>
-              <QtyWrapper>
-                <QtyButton onClick={() => setQty(q => Math.max(1, q - 1))}>–</QtyButton>
-                <Qty>{qty}</Qty>
-                <QtyButton onClick={() => setQty(q => q + 1)}>+</QtyButton>
-              </QtyWrapper>
-            </FormRow>
-            <FormRow>
-              <Label>물품 링크</Label>
-              <FullWidthInput
-                placeholder="구입할 물품의 링크를 입력해 주세요"
-                value={link}
-                onChange={e => setLink(e.target.value)}
-              />
-            </FormRow>
-            <FormRow>
-              <Label>신청 사유</Label>
-              <TextArea
-                placeholder="신청 사유를 10자 이상 입력해 주세요"
-                value={reason}
-                onChange={e => setReason(e.target.value)}
-              />
-            </FormRow>
-          </FormSection>
-          <ListSection>
-            <ListSectionHeader>
-              <SectionTitle>우리 팀이 신청한 물건 확인하기</SectionTitle>
-              <ApplyButton>신청하기</ApplyButton>
-            </ListSectionHeader>
-            <ListWrapper>
-                
+
+  return (
+    <Container>
+      <Header>
+        <Titles>
+          <h1>전공동아리 물품신청</h1>
+          <h3>전공동아리에 사용할 물품을 신청해요</h3>
+        </Titles>
+        <BudgetBox>
+          <span>남은예산</span>
+          <strong>{remaining.toLocaleString()}</strong>
+          <Used>-{used.toLocaleString()}</Used>
+        </BudgetBox>
+      </Header>
+
+      <Main>
+        <FormSection>
+          <FormSectionHeader>
+            <SectionTitle>물품신청</SectionTitle>
+            <AddButton onClick={handleAdd}>추가하기</AddButton>
+          </FormSectionHeader>
+          <FormRow>
+            <Label>구입물품</Label>
+            <Input
+              placeholder="구입할 물품을 입력해 주세요"
+              value={item}
+              onChange={e => setItem(e.target.value)}
+            />
+            <Label>가격</Label>
+            <Input
+              placeholder="가격을 입력해 주세요"
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+            />
+            <Label>수량</Label>
+            <QtyWrapper>
+              <QtyButton onClick={() => setQty(q => Math.max(1, q - 1))}>–</QtyButton>
+              <Qty>{qty}</Qty>
+              <QtyButton onClick={() => setQty(q => q + 1)}>+</QtyButton>
+            </QtyWrapper>
+          </FormRow>
+          <FormRow>
+            <Label>물품 링크</Label>
+            <FullWidthInput
+              placeholder="구입할 물품의 링크를 입력해 주세요"
+              value={link}
+              onChange={e => setLink(e.target.value)}
+            />
+          </FormRow>
+          <FormRow>
+            <Label>신청 사유</Label>
+            <TextArea
+              placeholder="신청 사유를 10자 이상 입력해 주세요"
+              value={reason}
+              onChange={e => setReason(e.target.value)}
+            />
+          </FormRow>
+        </FormSection>
+
+        <ListSection>
+          <ListSectionHeader>
+            <SectionTitle>우리 팀이 신청한 물건 확인하기</SectionTitle>
+            <ApplyButton>신청하기</ApplyButton>
+          </ListSectionHeader>
+          <ListWrapper>
             {requests.map(r => (
-                <Box
-                  key={r.no}
-                  request={r}
-                  onReasonChange={handleReasonChange}
-                />
-              ))}
-            </ListWrapper>
-          </ListSection>
-        </Main>
+              <Box key={r.no} request={r} onReasonChange={handleReasonChange} />
+            ))}
+          </ListWrapper>
+        </ListSection>
+      </Main>
 
-        <Footer>
-          <FooterLink>물품 신청 가이드 보기 &gt;</FooterLink>
-          <FooterLink>전체보기</FooterLink>
-        </Footer>
-      </Container>
-    );
+      <Footer>
+        <FooterLink>물품 신청 가이드 보기 &gt;</FooterLink>
+        <FooterLink>전체보기</FooterLink>
+      </Footer>
+    </Container>
+  );
 }
+
 const Container = styled.div`
-  flex: 1;
-  display: flex;    
-  width: 90%;
-  flex-direction: column;
-  overflow: hidden;
-
-  box-sizing: border-box;
-  
-`;
-
-const Main = styled.div`
-  flex: 1;
   display: flex;
-   flex-direction: column;
-   overflow: hidden;
-   min-height: 0;  
+  flex-direction: column;
+  height: 100vh;
+  width: 90%;
+  overflow: hidden;
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  padding: 0 24px;
   margin-bottom: 32px;
 `;
 
 const Titles = styled.div`
-  h1 { margin: 0; font-size: 28px; font-weight: bold; }
-  h3 { margin: 4px 0 0; font-size: 16px; color: #666; }
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  h3 {
+    margin: 4px 0 0;
+    font-size: 16px;
+    color: #666;
+  }
 `;
 
 const BudgetBox = styled.div`
@@ -185,8 +185,18 @@ const BudgetBox = styled.div`
   background: #fff;
   padding: 12px 16px;
   border-radius: 12px;
-  span { display: block; font-size: 14px; color: #999; }
-  strong { display: block; font-size: 20px; color: #333; margin-top: 4px; }
+
+  span {
+    display: block;
+    font-size: 14px;
+    color: #999;
+  }
+  strong {
+    display: block;
+    font-size: 20px;
+    color: #333;
+    margin-top: 4px;
+  }
 `;
 
 const Used = styled.span`
@@ -196,17 +206,19 @@ const Used = styled.span`
   margin-top: 2px;
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
+const Main = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 0;
 `;
 
 const FormSection = styled.div`
   background: #fff;
   border-radius: 12px;
   padding: 24px;
-  margin-bottom: 32px;
+  margin: 0 24px 32px;
 `;
 
 const FormSectionHeader = styled.div`
@@ -214,6 +226,12 @@ const FormSectionHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
 `;
 
 const AddButton = styled.button`
@@ -287,11 +305,13 @@ const TextArea = styled.textarea`
 `;
 
 const ListSection = styled.div`
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 0 24px 32px;
   display: flex;
   flex-direction: column;
-  flex: 1;
-  margin-bottom: 32px;
-  min-height: 0;   
+  min-height: 0;
 `;
 
 const ListSectionHeader = styled.div`
@@ -315,20 +335,22 @@ const ApplyButton = styled.button`
 const ListWrapper = styled.div`
   flex: 1;
   overflow-y: auto;
-  padding-right: 8px;
 `;
 
 const Footer = styled.div`
-  flex-shrink: 0;
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #eee;
-  padding-top: 16px;
+  align-items: center;
+  padding: 16px 50px;
   font-size: 14px;
   color: #909090;
 `;
 
 const FooterLink = styled.a`
+  color: inherit;
   text-decoration: none;
-  &:hover { text-decoration: underline; }
+  &:hover {
+    text-decoration: underline;
+  }
 `;
