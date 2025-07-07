@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode, ReactElement } from 'react';
 
-export default function makeDocument(text: string = ''): JSX.Element | null {
+export default function makeDocument(text: string = ''): ReactElement | null {
   const tagPatterns: { pattern: RegExp; component: (content: ReactNode) => ReactNode }[] = [
     {
       pattern: /<제목1>\n?([\s\S]*?)\n?<\/제목1>/,
