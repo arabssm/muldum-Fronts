@@ -12,9 +12,11 @@
       "@_pages/*": ["src/page/*"],
       "@_main/*": ["src/page/Main/*"],
       "@_notice/*": ["src/page/Notice/*"],
-      "@_styles/*": ["src/App.css"]
+      "@_styles/*": ["src/font.css"]
     },
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]
