@@ -13,16 +13,12 @@ export default defineConfig({
       '@_assets': path.resolve(__dirname, 'src/assets'),
       '@_icons': path.resolve(__dirname, 'src/assets/icon'),
       '@_modalImages': path.resolve(__dirname, 'src/assets/modal'),
-      '@_components': path.resolve(__dirname, 'src/components'),
-      '@_menu': path.resolve(__dirname, 'src/components/Menu'),
-      '@_modal': path.resolve(__dirname, 'src/components/Modal'),
-      '@_navbar': path.resolve(__dirname, 'src/components/NavBar'),
-      '@_notfound': path.resolve(__dirname, 'src/components/NotFound'),
-      '@_slide': path.resolve(__dirname, 'src/components/Slide'),
+      '@_components': path.resolve(__dirname, 'src/component'),
+      '@_componentsModal': path.resolve(__dirname, 'src/component/modal'),
+      '@_componentsOnboarding': path.resolve(__dirname, 'src/component/onboarding'),
+      '@_atom': path.resolve(__dirname, 'src/atom'),
       '@_pages': path.resolve(__dirname, 'src/page'),
-      '@_main': path.resolve(__dirname, 'src/page/Main'),
-      '@_notice': path.resolve(__dirname, 'src/page/Notice'),
-      '@_styles': path.resolve(__dirname, 'src/App.css'),
+      '@_styles': path.resolve(__dirname, 'src/font.css'),
     }
   }
 });
