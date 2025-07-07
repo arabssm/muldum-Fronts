@@ -35,6 +35,8 @@ export const Legendimg = styled.img`
 `;
 
 export const Title = styled.div`
+    display: flex;
+    align-items: center;
     position: absolute;
     font-size: 2.5rem;
     font-weight: 500;
@@ -48,7 +50,7 @@ export const SubTitle = styled.div`
     position: absolute;
     font-weight: 400;
     left: 4%;
-    top: 67%;
+    top: 62%;
 `;
 
 export const Date = styled.div`
@@ -56,7 +58,7 @@ export const Date = styled.div`
     font-weight: 400;
     position: absolute;
     left: 4%;
-    top: 52%;
+    top: 48%;
 `;
 
 export const Ddate = styled.div`
