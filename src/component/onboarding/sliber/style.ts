@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import Slider from 'react-slick';
 
 export const High = styled.div`
-    width: 90%;
+    width: 72%;
     overflow: hidden;
 `;
 
