@@ -51,6 +51,10 @@ export const ViewAll = styled.div`
     font-size: 0.875rem;
     color: #909090;
     cursor: pointer;
+
+    :hover {
+        color: #FF9B62;
+    }
 `;
 
 export const BoxContainer = styled.div`

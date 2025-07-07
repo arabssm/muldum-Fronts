@@ -27,9 +27,9 @@ export default function Detail() {
       <_.ContentArea>
         <_.Up>
             <_.Title>{doc.title}</_.Title>
-            <_.Subtitle>{date}</_.Subtitle>
+            <_.date>{date}</_.date>
             <_.Subtitle>{doc.teacher}</_.Subtitle>
-            </_.Up>
+        </_.Up>
         <_.Body>
           {makeDocument(doc.content)}
         </_.Body>
