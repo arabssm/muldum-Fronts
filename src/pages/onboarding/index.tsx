@@ -13,7 +13,7 @@ export default function Home(){
     const isOpen2=useRecoilValue(whereismypasswordModalState);
 
     return(
-    <>
+    <Container>
         < Sidebar/>
             <King>
                 <Slbe/>
@@ -22,9 +22,15 @@ export default function Home(){
             </King>
             {isOpen && <LoginModal />}
             {isOpen2 && <PasswordModal />}
-        </>
+        </Container>
     );
 }
+
+const Container = styled.div`
+    width: 100%;
+    margin-left: 5%;
+    margin-top: 2%;
+`;
 
 const King =styled.div`
     width: 100%;

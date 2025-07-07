@@ -1,14 +1,12 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 interface BoxProps {
   idx: number;
   title: string;
-  date: string; // ISO 문자열
+  date: string;
 }
 
-// ISO → "YYYY-MM-DD 오전/오후 H:MM" 포맷
 const formatDate = (iso: string) => {
   const d = new Date(iso);
   const Y = d.getFullYear();
@@ -35,8 +33,6 @@ export default function Box({ idx, title, date }: BoxProps) {
   );
 }
 
-// ─── styled ─────────────────────────────────
-
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -51,7 +47,7 @@ const Left = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  flex: 1;               /* 제목이 오른쪽 영역 침범하지 않게 */
+  flex: 1; 
 `;
 
 const Badge = styled.span`
