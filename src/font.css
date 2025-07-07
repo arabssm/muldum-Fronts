@@ -1,0 +1,13 @@
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/ara/public/Paperlogy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font: 'Paperlogy';
+}
+
+body {
+  font-family: 'Paperlogy';
+  
+}
