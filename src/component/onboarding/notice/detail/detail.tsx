@@ -70,11 +70,12 @@ export default function Detail() {
 }
 
 
-
 const Wrapper = styled.div`
   height: 100vh;
   position: fixed;
+  height: 100vh;
 `;
+
 const Up = styled.div`
   display: flex;
   flex-direction: column;
@@ -83,7 +84,6 @@ const Up = styled.div`
     margin: 0; 
   }
 `;
-
 
 const ContentArea = styled.div`
   margin-left: 240px;
