@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
-import { useRecoilValue } from 'recoil'
-import { loginModalState,whereismypasswordModalState } from '../../atom/Modal'
-import LoginModal from '../../component/modal/login/login'
-import Sidebar from '../../component/sibebar/sidebar'
-import Slbe from '../../component/onboarding/sliber/sliber'
-import Menu from '../../component/onboarding/menu/menu'
-import Notice from '../../component/onboarding/notice/notice'
-import PasswordModal from '../../component/modal/password/password'
+import { useRecoilValue } from 'recoil';
+import { loginModalState, whereismypasswordModalState } from "@_atom/Modal";
+import LoginModal from '@_componentsModal/login/login';
+import Sidebar from '@_components/sibebar/sidebar';
+import Slbe from '@_componentsOnboarding/sliber/sliber';
+import Menu from '@_componentsOnboarding/menu/menu';
+import Notice from '@_componentsOnboarding/notice/notice';
+import PasswordModal from '@_componentsModal/password/password';
 
 export default function Home(){
     const isOpen = useRecoilValue(loginModalState)
@@ -14,23 +14,24 @@ export default function Home(){
 
     return(
     <>
-    < Sidebar/>
-    <King>
-        <Slbe/>
-        <Menu />
-        <Notice />
-    </King>
-    {isOpen && <LoginModal />}
-    {isOpen2 && <PasswordModal />}
-    </>
+        < Sidebar/>
+            <King>
+                <Slbe/>
+                <Menu />
+                <Notice />
+            </King>
+            {isOpen && <LoginModal />}
+            {isOpen2 && <PasswordModal />}
+        </>
     );
 }
+
 const King =styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
     margin-left: 15%;
     flex-direction: column;
-    gap: 50px;
+    gap: 3rem;
     position: fixed
 `;
