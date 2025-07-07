@@ -7,7 +7,8 @@ export const CardContainer = styled.div`
     background: #FAFAFA;     
     border-radius: 0.625rem;       
     padding: 5% 5%;    
-    width: 90%;
+    width: 82%;
+    margin-left: 9%;
     cursor: pointer;
     
     &:hover {
@@ -44,6 +45,7 @@ export const H1 = styled.h2`
     font-size: 1.5rem;
     color: #1D1D1D;
     font-weight: 500;
+    margin-left: 3.2%;
 `;
 
 export const H2 = styled.h4`
@@ -54,6 +56,7 @@ export const H2 = styled.h4`
     font-weight: 500;
     margin-top: 0.2%;
     margin-bottom: 2%;
+    margin-left: 3.2%;
 `;
 
 export const GridContainer = styled.div`

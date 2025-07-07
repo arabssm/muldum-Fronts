@@ -28,7 +28,7 @@ export default function Home(){
 
 const Container = styled.div`
     width: 100%;
-    margin-left: 5%;
+    margin-left: 3%;
     margin-top: 2%;
 `;
 

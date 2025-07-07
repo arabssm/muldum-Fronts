@@ -5,7 +5,6 @@ import Box from './box';
 import * as _ from './style';
 import { mockdata } from './data';
 
-
 export default function Notice() {
   const [search, setSearch] = useState('');
   const filtered = mockdata.filter(n =>

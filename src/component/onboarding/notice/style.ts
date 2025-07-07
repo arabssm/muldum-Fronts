@@ -4,12 +4,14 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
+    margin-left: 4.5rem;
+    margin-top: 2rem;
 `;
 
 export const Title = styled.h2`
     font-size: 1.5rem;
     color: #1d1d1d;
-    margin-right: 50%;
+    margin-right: 46.2%;
     font-weight: 500;
 `;
 
@@ -21,7 +23,7 @@ export const SearchWrapper = styled.div`
     height: 2.5rem;
     background-color: #f5f5f5;
     border-radius: 0.3rem;
-    padding-left: 0.75rem;
+    padding-left: 1rem;
     margin-right: 1rem;
 `;
 
@@ -61,7 +63,7 @@ export const BoxContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    width: 72%;
+    width: 73%;
     padding: 1rem 0;
 `;
 
@@ -69,6 +71,7 @@ export const Container = styled.div`
     display: flex;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
+    margin-left: 3.3rem;
     cursor: pointer;
 `;
 
@@ -97,4 +100,5 @@ export const BigTitle = styled.h2`
 export const DateText = styled.span`
     font-size: 0.875rem;
     color: #666;
+    margin-left: 10%;
 `;
