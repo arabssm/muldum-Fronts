@@ -19,7 +19,6 @@ export default function Box({ request, onReasonChange }: Props) {
   const [reason, setReason] = useState(request.reason);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // 편집 모드 진입 시 textarea에 포커스
   useEffect(() => {
     if (isEditing && textareaRef.current) {
       textareaRef.current.focus();
