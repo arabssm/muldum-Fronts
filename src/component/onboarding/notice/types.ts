@@ -9,3 +9,9 @@ export interface NoticeItem {
     created_at: string;
     teacher: string;
 }
+
+export interface BoxProps {
+    idx: number;
+    title: string;
+    date: string;
+}

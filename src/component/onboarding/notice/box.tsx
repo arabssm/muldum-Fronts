@@ -1,11 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import styled from '@emotion/styled';
-
-interface BoxProps {
-  idx: number;
-  title: string;
-  date: string;
-}
+import * as _ from './style';
+import { BoxProps } from './types';
 
 const formatDate = (iso: string) => {
   const d = new Date(iso);
@@ -23,56 +18,12 @@ const formatDate = (iso: string) => {
 export default function Box({ idx, title, date }: BoxProps) {
   const navigate = useNavigate();
   return (
-    <Container onClick={() => navigate(`/notice/${idx}`)}>
-      <Left>
-        <Badge>신규</Badge>
-        <Title>{title}</Title>
-      </Left>
-      <DateText>{formatDate(date)}</DateText>
-    </Container>
+    <_.Container onClick={() => navigate(`/notice/${idx}`)}>
+      <_.Left>
+        <_.Badge>신규</_.Badge>
+        <_.BigTitle>{title}</_.BigTitle>
+      </_.Left>
+      <_.DateText>{formatDate(date)}</_.DateText>
+    </_.Container>
   );
 }
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  cursor: pointer;
-  background: #fff;
-  border-radius: 8px;
-`;
-
-const Left = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 1; 
-`;
-
-const Badge = styled.span`
-  background-color: #FF9B62;
-  color: #fff;
-  padding: 4px 10px;     /* width 대신 padding으로 크기 조절 */
-  font-size: 12px;       /* 적당한 크기 */
-  font-weight: 500;
-  border-radius: 10px;
-  line-height: 1;        /* 텍스트가 중간에 위치하도록 */
-`;
-
-const Title = styled.h2`
-  margin: 0;
-  font-size: 16px;
-  color: #1E1E1E;
-  line-height: 1.4;      /* 두 줄 이상일 때도 읽기 좋게 */
-  word-break: keep-all;  /* 한글 단어 잘리지 않도록 */
-  overflow-wrap: break-word; 
-  flex-shrink: 1;        /* 길어지면 줄바꿈 */
-`;
-
-const DateText = styled.span`
-  font-size: 14px;
-  color: #666;
-  white-space: nowrap;   /* 날짜가 잘리지 않도록 */
-  margin-left: 16px;
-`;
