@@ -15,6 +15,7 @@ export const Up = styled.div`
 
 export const ContentArea = styled.div`
     display: flex;
+    width: 50%;
     flex-direction: column;
 `;
 
