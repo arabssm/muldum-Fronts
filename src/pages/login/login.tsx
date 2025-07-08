@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil'
-import { loginModalState } from '../../atom/Modal'
-import Modal from '../../component/modal/login/login'
+import { loginModalState } from '@_atom/Modal'
+import Modal from '@_componentsModal/login/login'
 
 export default function Login(){
     const isOpen = useRecoilValue(loginModalState)

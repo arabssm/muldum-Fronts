@@ -7,14 +7,14 @@ import {
 } from "react-router-dom";
 
 import {RecoilRoot} from 'recoil';
-import Home from './pages/onboarding/index'
-import Detail from './component/onboarding/notice/detail/detail';
-import Notice1 from './pages/notice/notice';
-import Object from './pages/object/object'
-import './font.css';
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import Home from '@_pages/onboarding/index'
+import Detail from '@_componentsOnboarding/notice/detail/detail';
+import Notice1 from '@_pages/notice/notice';
 import NotFound from '@_components/Notfound/404';
+import Object from '@_pages/object/object';
+import '@_styles';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 createRoot(document.getElementById('root')!).render(
   <RecoilRoot>

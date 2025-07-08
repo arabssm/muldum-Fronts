@@ -1,5 +1,5 @@
-import Notice from "../../component/onboarding/notice/notice";
-import Sidebar from "../../component/sibebar/sidebar";
+import Notice from "@_componentsOnboarding/notice/notice";
+import Sidebar from "@_components/sibebar/sidebar";
 import styled from "@emotion/styled";
 export default function Notice1(){
     return(
