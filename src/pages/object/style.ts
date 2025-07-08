@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const PageWrapper = styled.div`
     display: flex;
     height: 100vh;
+    margin-left: 3%;
 `;
 
 export const Container = styled.div`
@@ -10,7 +11,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    width: calc(100% - 15rem);
     margin-left: 13.75rem;
     padding: 2rem 5%;
     box-sizing: border-box;
@@ -32,8 +32,8 @@ export const Header = styled.div`
 `;
 
 export const Titles = styled.div`
-    h1 { margin: 0; font-size: 1.75rem; font-weight: bold; }
-    h3 { margin: 0.25rem 0 0; font-size: 1rem; color: #666; }
+    h1 { margin: 0; font-size: 1.75rem; font-weight: 500; margin-bottom: 4%; }
+    h3 { margin: 0.25rem 0 0; font-size: 1rem; color: #666; font-weight: 400; }
 `;
 
 export const BudgetBox = styled.div`
@@ -54,14 +54,12 @@ export const Used = styled.span`
 
 export const SectionTitle = styled.h2`
     font-size: 1.125rem;
-    font-weight: 600;
-    margin: 0;
+    font-weight: 500;
 `;
 
 export const FormSection = styled.div`
     background: #fff;
     border-radius: 0.75rem;
-    padding: 1.5rem;
     margin-bottom: 2rem;
 `;
 
@@ -81,6 +79,7 @@ export const AddButton = styled.button`
     border-radius: 1.25rem;
     font-size: 0.875rem;
     cursor: pointer;
+    font-family: 'Paperlogy';
 `;
 
 export const FormRow = styled.div`
@@ -103,6 +102,7 @@ export const Input = styled.input`
     border: 1px solid #ddd;
     border-radius: 0.5rem;
     font-size: 0.875rem;
+    font-family: 'Paperlogy';
 `;
 
 export const FullWidthInput = styled(Input)`
@@ -140,6 +140,7 @@ export const TextArea = styled.textarea`
     border-radius: 0.5rem;
     font-size: 0.875rem;
     resize: vertical;
+    font-family: 'Paperlogy';
 `;
 
 export const ListSection = styled.div`
@@ -162,10 +163,11 @@ export const ApplyButton = styled.button`
     color: #fff;
     border: none;
     padding: 0 1.25rem;
-    height: 2.25rem;
-    border-radius: 1.125rem;
+    height: 2.5rem;
+    border-radius: 1.25rem;
     font-size: 0.875rem;
     cursor: pointer;
+    font-family: 'Paperlogy';
 `;
 
 export const ListWrapper = styled.div`
@@ -186,5 +188,6 @@ export const Footer = styled.div`
 
 export const FooterLink = styled.a`
     text-decoration: none;
+    cursor: pointer;
     &:hover { text-decoration: underline; }
 `;
