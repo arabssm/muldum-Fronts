@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as _ from './style';
 import Sidebar from '@_components/sibebar/sidebar';
 import Box from '@_components/object/box';
-import type { Request } from '@_components/object/box';
+import type { Request } from '@_components/object/types';
 
 export default function Object() {
   const remaining = 200000;

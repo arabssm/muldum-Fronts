@@ -1,18 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styled from '@emotion/styled';
-
-export interface Request {
-  no: string;
-  title: string;
-  qty: number;
-  status: string;
-  reason: string;
-}
-
-interface Props {
-  request: Request;
-  onReasonChange: (no: string, newReason: string) => void;
-}
+import { useState, useEffect, useRef } from 'react';
+import type { Props } from './types';
+import * as _ from './style';
 
 export default function Box({ request, onReasonChange }: Props) {
   const [isEditing, setIsEditing] = useState(false);
@@ -31,16 +19,16 @@ export default function Box({ request, onReasonChange }: Props) {
   };
 
   return (
-    <Card>
-      <CardRow>
-        <Cell flex="0 0 40px">{request.no}</Cell>
-        <Cell flex="1">{request.title}</Cell>
-        <Cell flex="0 0 60px">수량 {request.qty}</Cell>
-        <Cell flex="0 0 100px">{request.status}</Cell>
-      </CardRow>
-      <ReasonRow onClick={() => !isEditing && setIsEditing(true)}>
+    <_.Card>
+      <_.CardRow>
+        <_.Cell flex="0 0 40px">{request.no}</_.Cell>
+        <_.Cell flex="1">{request.title}</_.Cell>
+        <_.Cell flex="0 0 60px">수량 {request.qty}</_.Cell>
+        <_.Cell flex="0 0 100px">{request.status}</_.Cell>
+      </_.CardRow>
+      <_.ReasonRow onClick={() => !isEditing && setIsEditing(true)}>
         {isEditing ? (
-          <ReasonTextarea
+          <_.ReasonTextarea
             ref={textareaRef}
             value={reason}
             onChange={e => setReason(e.target.value)}
@@ -49,49 +37,7 @@ export default function Box({ request, onReasonChange }: Props) {
         ) : (
           reason || '구매 사유를 입력해 주세요'
         )}
-      </ReasonRow>
-    </Card>
+      </_.ReasonRow>
+    </_.Card>
   );
 }
-
-const Card = styled.div`
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  overflow: hidden;
-`;
-
-const CardRow = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid #eee;
-`;
-
-const Cell = styled.div<{ flex: string }>`
-  flex: ${({ flex }) => flex};
-  font-size: 14px;
-  color: #333;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-
-const ReasonRow = styled.div`
-  padding: 12px 16px;
-  background: #fafafa;
-  color: #555;
-  cursor: text;
-`;
-
-const ReasonTextarea = styled.textarea`
-  width: 100%;
-  border: none;
-  resize: none;
-  background: transparent;
-  font-size: 14px;
-  line-height: 1.5;
-  outline: none;
-`;
