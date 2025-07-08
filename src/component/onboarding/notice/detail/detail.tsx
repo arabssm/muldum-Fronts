@@ -3,11 +3,12 @@ import makeDocument from '@_util/Document';
 import Sidebar from '@_components/sibebar/sidebar';
 import * as _ from './style';
 import { documents } from './data';
+import Notfound from '@_components/Notfound/404';
 
 export default function Detail() {
   const { id } = useParams<{ id: string }>();
   const doc = documents.find(d => d.id === id);
-  if (!doc) return <_.NotFound>문서를 찾을 수 없습니다.</_.NotFound>;
+  if (!doc) return <Notfound />;
   const date = (() => {
     const d = new Date(doc.created_at);
     const Y = d.getFullYear();
