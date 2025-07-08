@@ -30,6 +30,7 @@ const Container = styled.div`
     width: 100%;
     margin-left: 3%;
     margin-top: 2%;
+    overflow: auto;
 `;
 
 const King =styled.div`
@@ -38,5 +39,4 @@ const King =styled.div`
     margin-left: 15%;
     flex-direction: column;
     gap: 3rem;
-    position: fixed
 `;

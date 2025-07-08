@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
     height: 100vh;
     margin-left: 20%;
     margin-top: 2%;
-    position: fixed;
 `;
 
 export const Up = styled.div`

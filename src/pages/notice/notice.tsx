@@ -15,6 +15,5 @@ const Container =styled.div`
     display: flex;
     margin-left: 15%;
     flex-direction: column;
-    gap: 50px;
-    position: fixed;
+    gap: 3.25rem;
 `;
