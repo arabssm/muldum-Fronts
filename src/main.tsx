@@ -14,6 +14,8 @@ import Object from './pages/object/object'
 import './font.css';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import NotFound from '@_components/Notfound/404';
+
 createRoot(document.getElementById('root')!).render(
   <RecoilRoot>
     <BrowserRouter>
@@ -22,6 +24,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/notice" element={<Notice1 />} /> 
           <Route path="/notice/:id" element={<Detail />} />
           <Route path='/object' element={<Object />}/> 
+          <Route path="*" element={<NotFound />} />
         </Routes>
     </BrowserRouter>
   </RecoilRoot>
