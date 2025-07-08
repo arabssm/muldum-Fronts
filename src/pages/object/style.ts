@@ -10,9 +10,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    width: calc(100% - 240px);
-    margin-left: 220px;
-    padding: 32px 5%;
+    width: calc(100% - 15rem);
+    margin-left: 13.75rem;
+    padding: 2rem 5%;
     box-sizing: border-box;
 `;
 
@@ -21,88 +21,88 @@ export const Main = styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    min-height: 0;  
+    min-height: 0;
 `;
 
 export const Header = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
 `;
 
 export const Titles = styled.div`
-    h1 { margin: 0; font-size: 28px; font-weight: bold; }
-    h3 { margin: 4px 0 0; font-size: 16px; color: #666; }
+    h1 { margin: 0; font-size: 1.75rem; font-weight: bold; }
+    h3 { margin: 0.25rem 0 0; font-size: 1rem; color: #666; }
 `;
 
 export const BudgetBox = styled.div`
     text-align: right;
     background: #fff;
-    padding: 12px 16px;
-    border-radius: 12px;
-    span { display: block; font-size: 14px; color: #999; }
-    strong { display: block; font-size: 20px; color: #333; margin-top: 4px; }
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    span { display: block; font-size: 0.875rem; color: #999; }
+    strong { display: block; font-size: 1.25rem; color: #333; margin-top: 0.25rem; }
 `;
 
 export const Used = styled.span`
     display: block;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #ff4d4f;
-    margin-top: 2px;
+    margin-top: 0.125rem;
 `;
 
 export const SectionTitle = styled.h2`
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     margin: 0;
 `;
 
 export const FormSection = styled.div`
     background: #fff;
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 32px;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
 `;
 
 export const FormSectionHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 `;
 
 export const AddButton = styled.button`
     background: #FF9B62;
     color: #fff;
     border: none;
-    padding: 0 20px;
-    height: 40px;
-    border-radius: 20px;
-    font-size: 14px;
+    padding: 0 1.25rem;
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    font-size: 0.875rem;
     cursor: pointer;
 `;
 
 export const FormRow = styled.div`
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
+    gap: 1rem;
+    margin-bottom: 1rem;
 `;
 
 export const Label = styled.label`
-    flex: 0 0 80px;
-    font-size: 14px;
+    flex: 0 0 5rem;
+    font-size: 0.875rem;
     color: #333;
 `;
 
 export const Input = styled.input`
-    flex: 1 1 200px;
-    height: 40px;
-    padding: 0 12px;
+    flex: 1 1 12.5rem;
+    height: 2.5rem;
+    padding: 0 0.75rem;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
 `;
 
 export const FullWidthInput = styled(Input)`
@@ -113,32 +113,32 @@ export const QtyWrapper = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     overflow: hidden;
 `;
 
 export const QtyButton = styled.button`
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     background: #f0f0f0;
     border: none;
-    font-size: 18px;
+    font-size: 1.125rem;
     cursor: pointer;
 `;
 
 export const Qty = styled.div`
-    width: 40px;
+    width: 2.5rem;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.875rem;
 `;
 
 export const TextArea = styled.textarea`
     flex: 1;
-    height: 100px;
-    padding: 12px;
+    height: 6.25rem;
+    padding: 0.75rem;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
     resize: vertical;
 `;
 
@@ -146,32 +146,32 @@ export const ListSection = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin-bottom: 32px;
-    min-height: 0;   
+    margin-bottom: 2rem;
+    min-height: 0;
 `;
 
 export const ListSectionHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 `;
 
 export const ApplyButton = styled.button`
     background: #FF9B62;
     color: #fff;
     border: none;
-    padding: 0 20px;
-    height: 36px;
-    border-radius: 18px;
-    font-size: 14px;
+    padding: 0 1.25rem;
+    height: 2.25rem;
+    border-radius: 1.125rem;
+    font-size: 0.875rem;
     cursor: pointer;
 `;
 
 export const ListWrapper = styled.div`
     flex: 1;
     overflow-y: auto;
-    padding-right: 8px;
+    padding-right: 0.5rem;
 `;
 
 export const Footer = styled.div`
@@ -179,8 +179,8 @@ export const Footer = styled.div`
     display: flex;
     justify-content: space-between;
     border-top: 1px solid #eee;
-    padding-top: 16px;
-    font-size: 14px;
+    padding-top: 1rem;
+    font-size: 0.875rem;
     color: #909090;
 `;
 
