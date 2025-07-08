@@ -18,7 +18,7 @@ export default defineConfig({
       '@_componentsOnboarding': path.resolve(__dirname, 'src/component/onboarding'),
       '@_util': path.resolve(__dirname, 'src/util'),
       '@_atom': path.resolve(__dirname, 'src/atom'),
-      '@_pages': path.resolve(__dirname, 'src/page'),
+      '@_pages': path.resolve(__dirname, 'src/pages'),
       '@_styles': path.resolve(__dirname, 'src/font.css'),
     }
   }
