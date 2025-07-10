@@ -1,11 +1,12 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { IconMenu } from './IconMenu';
 import * as _ from './style';
-
+import { useSetRecoilState } from 'recoil'
+import { loginModalState } from '@_atom/Modal'
 export default function NavBar() {
 const navigate = useNavigate();
 const location = useLocation();
-
+const setModalOpen = useSetRecoilState(loginModalState)
 return (
     <_.MainArea>
         {IconMenu.map((item) => {
@@ -21,7 +22,14 @@ return (
             return (
                 <TagComponent
                     key={item.label}
-                    onClick={() => navigate(item.path)}
+                    onClick={()=>{
+                        if (item.label === '로그인') {
+                            setModalOpen(true); 
+                          } else {
+                            navigate(item.path); 
+                          }
+                        }
+                    }
                     isActive={isActive}
                 >
                     <_.Icon

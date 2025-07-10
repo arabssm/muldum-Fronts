@@ -5,6 +5,7 @@ import { BoxProps } from './types';
 const formatDate = (iso: string) => {
   const d = new Date(iso);
   const Y = d.getFullYear();
+  
   const M = String(d.getMonth()+1).padStart(2,'0');
   const D = String(d.getDate()).padStart(2,'0');
   let h = d.getHours();
@@ -17,6 +18,8 @@ const formatDate = (iso: string) => {
 
 export default function Box({ idx, title, date }: BoxProps) {
   const navigate = useNavigate();
+
+  
   return (
     <_.Container onClick={() => navigate(`/notice/${idx}`)}>
       <_.Left>

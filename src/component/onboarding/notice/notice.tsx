@@ -1,16 +1,26 @@
-
-import { useState } from 'react';
 import Header11 from './noticeHeader';
 import Box from './box';
 import * as _ from './style';
-import { mockdata } from './data';
-
+import { useEffect,useState } from 'react';
+import getNotice from '../../../api/notice'
 export default function Notice() {
   const [search, setSearch] = useState('');
-  const filtered = mockdata.filter(n =>
-    n.title.includes(search)
-  );
-
+  
+  const [posts, setPosts] = useState([]);
+  
+  useEffect(() => {
+    getNotice()
+      .then((data) => {
+        setPosts(data?.content || []);
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log("게시물을 불러오는 데 실패했습니다.", err);
+      });
+  }, []);
+const filtered = posts.filter(n =>
+  n.title.includes(search)
+);
   return (
     <>
       <Header11 value={search} onChange={setSearch} />

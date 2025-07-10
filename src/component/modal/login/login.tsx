@@ -1,21 +1,35 @@
-// LoginModal.tsx
 import React from 'react';
 import { useSetRecoilState } from 'recoil';
 import { loginModalState, whereismypasswordModalState } from '../../../atom/Modal';
 import styled from '@emotion/styled';
-
+import { useState } from 'react';
 import emailIcon from '../../../assets/login/email.svg';
 import passwordIcon from '../../../assets/login/password.svg';
-
+import Login from '../../../api/login.js'
+import { useNavigate } from 'react-router-dom';
 export default function LoginModal() {
+  const navigate=useNavigate();
   const setModalOpen = useSetRecoilState(loginModalState);
   const setModalOpen1 = useSetRecoilState(whereismypasswordModalState);
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   function Cake() {
     setModalOpen1(true);
     setModalOpen(false);
   }
-
+  async function Check(e) {
+    e.preventDefault();
+    setModalOpen(false);
+    console.log(24);
+    const loginResponse = await Login({ email, password });
+    
+    if (loginResponse) {
+      navigate('/');
+    } else {
+      alert('이메일이나 비밀번호가 틀렸습니다.');
+    }
+  }
+  
   return (
     <>
       <Overlay onClick={() => setModalOpen(false)} />
@@ -27,6 +41,8 @@ export default function LoginModal() {
           <StyledInput
             type="email"
             placeholder="이메일"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             autoFocus
           />
         </InputWrapper>
@@ -36,10 +52,12 @@ export default function LoginModal() {
           <StyledInput
             type="password"
             placeholder="비밀번호"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </InputWrapper>
 
-        <LoginButton onClick={() => setModalOpen(false)}>
+        <LoginButton onClick={Check}>
           로그인
         </LoginButton>
 
@@ -53,7 +71,6 @@ export default function LoginModal() {
   );
 }
 
-// ---------- Styled Components ----------
 
 const Overlay = styled.div`
   position: fixed;
