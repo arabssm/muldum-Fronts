@@ -4,16 +4,16 @@ import Sidebar from '@_components/sibebar/sidebar';
 import Box from '@_components/object/box';
 import type { Request } from '@_components/object/types';
 import Apply from '../../api/apply'
-import {getApply} from '../../api/apply'
+import {getApply,getMoney} from '../../api/apply'
 export default function Object() {
-  const remaining = 200000;
-  const used = 120031;
+  
   const [item, setItem] = useState('');
   const [price, setPrice] = useState('');
   const [link, setLink] = useState('');
   const [qty, setQty] = useState(1);
   const [reason, setReason] = useState('');
-
+  const [money, setMoney] = useState<number>(0);
+  const [usedmoney, setUsedMoney] = useState<number>(0);
   const [requests, setRequests] = useState<Request[]>([]); 
 
   const handleReasonChange = (no: string, newReason: string) => {
@@ -41,10 +41,19 @@ export default function Object() {
     
   };
   useEffect(() => {
+    getMoney(1)
+    .then((data1) => {
+      setMoney(data1.remainingBudget);
+      console.log(data1);
+      setUsedMoney(data1.totalBudget-data1.remainingBudget)
+    })
+    .catch((err) => {
+      console.log("게시물을 불러오는 데 실패했습니다.", err);
+    });
     getApply(1)
-      .then((data) => {
-        setRequests(data);
-        console.log(data);
+      .then((data2) => {
+        setRequests(data2);
+        console.log(data2);
       })
       .catch((err) => {
         console.log("게시물을 불러오는 데 실패했습니다.", err);
@@ -63,8 +72,8 @@ export default function Object() {
             </_.Titles>
             <_.BudgetBox>
               <span>남은예산</span>
-              <strong>{remaining.toLocaleString()}</strong>
-              <_.Used>-{used.toLocaleString()}</_.Used>
+              <strong>{money}</strong>
+              <_.Used>-{usedmoney}</_.Used>
             </_.BudgetBox>
           </_.Header>
           <_.FormSection>

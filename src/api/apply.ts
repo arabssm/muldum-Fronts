@@ -32,3 +32,16 @@ export default async function Apply(name1,number,price,link,source,reason,team_i
       throw err;
     }
   }
+
+  export async function getMoney(team_id) {
+    try {
+      const res = await axiosInstance.get(`/std/items/money/1`);
+      if (res.status !== 200) {
+        return res.status;
+      }
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
