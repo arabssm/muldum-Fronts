@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as _ from './style';
 import Sidebar from '@_components/sibebar/sidebar';
 import Box from '@_components/object/box';
 import type { Request } from '@_components/object/types';
-import { initialRequests } from './data';
-
+import Apply from '../../api/apply'
+import {getApply} from '../../api/apply'
 export default function Object() {
   const remaining = 200000;
   const used = 120031;
@@ -14,34 +14,43 @@ export default function Object() {
   const [qty, setQty] = useState(1);
   const [reason, setReason] = useState('');
 
-  const [requests, setRequests] = useState<Request[]>(initialRequests);
+  const [requests, setRequests] = useState<Request[]>([]); 
 
   const handleReasonChange = (no: string, newReason: string) => {
     setRequests(rs =>
-      rs.map(r => (r.no === no ? { ...r, reason: newReason } : r))
+      rs.map(r => (r.id === no ? { ...r, reason: newReason } : r))
     );
   };
-  const handleAdd = () => {
+  const handleAdd = async () => {
     if (!item.trim() || reason.trim().length < 10) {
       alert('물품명과 사유(10자 이상)를 입력하세요.');
       return;
     }
-    const newNo = String(requests.length + 1).padStart(2, '0');
-    const newReq: Request = {
-      no: newNo,
-      title: item,
-      qty,
-      status: '승인대기중',
-      reason,
-    };
-    setRequests([...requests, newReq]);
-    setItem('');
-    setPrice('');
-    setLink('');
-    setQty(1);
-    setReason('');
+  
+    try {
+      const teamid = 1;
+      const { hostname } = new URL(link); 
+      const domain = hostname.replace(/^www\./, ''); 
+      const namePart = domain.split('.')[0]; 
+      const namePart1 = namePart.toUpperCase();
+      const data = await Apply(item, qty, price, link, namePart1, reason, teamid);
+      window.location.reload();
+    } catch (err) {
+      console.error("신청 실패:", err);
+    }
+    
   };
-
+  useEffect(() => {
+    getApply(1)
+      .then((data) => {
+        setRequests(data);
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log("게시물을 불러오는 데 실패했습니다.", err);
+      });
+  }, []);
+  console.log(requests);
   return (
     <_.PageWrapper>
       <Sidebar />
@@ -108,7 +117,7 @@ export default function Object() {
             <_.ListWrapper>
               {requests.map(r => (
                 <Box
-                  key={r.no}
+                  key={r.id}
                   request={r}
                   onReasonChange={handleReasonChange}
                 />

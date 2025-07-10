@@ -1,26 +1,28 @@
 import Header11 from './noticeHeader';
 import Box from './box';
 import * as _ from './style';
-import { useEffect,useState } from 'react';
-import getNotice from '../../../api/notice'
+import { useEffect, useState } from 'react';
+import getNotice from '../../../api/notice';
+
 export default function Notice() {
   const [search, setSearch] = useState('');
-  
   const [posts, setPosts] = useState([]);
-  
+
   useEffect(() => {
     getNotice()
       .then((data) => {
-        setPosts(data?.content || []);
+        setPosts(data?.content ?? []);
         console.log(data);
       })
       .catch((err) => {
         console.log("게시물을 불러오는 데 실패했습니다.", err);
       });
   }, []);
-const filtered = posts.filter(n =>
-  n.title.includes(search)
-);
+
+  const filtered = posts.filter(n =>
+    n.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
       <Header11 value={search} onChange={setSearch} />
@@ -30,7 +32,7 @@ const filtered = posts.filter(n =>
             key={notice.id}
             idx={notice.id}
             title={notice.title}
-            date={notice.created_at}
+            date={notice.createdAt} 
           />
         ))}
       </_.BoxContainer>

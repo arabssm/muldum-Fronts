@@ -18,6 +18,7 @@ import PasswordModal from '@_components/modal/password/password';
 import '@_styles';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { QueryClientProvider, QueryClient } from 'react-query';
 function Main(){
   const isOpen = useRecoilValue(loginModalState)
   const isOpen2=useRecoilValue(whereismypasswordModalState);
@@ -35,10 +36,13 @@ function Main(){
     </>
   );
 }
+const queryClient = new QueryClient();
 createRoot(document.getElementById('root')!).render(
-  <RecoilRoot>
-    <BrowserRouter>
-      <Main />
-    </BrowserRouter>
-  </RecoilRoot>
+  <QueryClientProvider client={queryClient}>
+    <RecoilRoot>
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
+    </RecoilRoot>
+  </QueryClientProvider>
 )

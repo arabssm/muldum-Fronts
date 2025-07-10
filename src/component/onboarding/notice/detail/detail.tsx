@@ -4,7 +4,7 @@ import Sidebar from '@_components/sibebar/sidebar';
 import * as _ from './style';
 import { documents } from './data';
 import Notfound from '@_components/Notfound/404';
-import {getNoticeDetail} from '../../../../api/notice1.js'
+import {getNoticeDetail} from '../../../../api/notice.js'
 import { useEffect, useState } from 'react';
 export default function Detail() {
   const { id } = useParams<{ id: string }>();
@@ -21,7 +21,7 @@ export default function Detail() {
   }, []);
   let date = '';
 if (doc1?.created_at) {
-  const d = new Date(doc1.created_at);
+  const d = new Date(doc1.createdAt);
   const Y = d.getFullYear();
   const M = String(d.getMonth() + 1).padStart(2, '0');
   const D = String(d.getDate()).padStart(2, '0');

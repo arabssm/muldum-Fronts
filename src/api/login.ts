@@ -1,6 +1,8 @@
 import axiosInstance from "../lib/axiosInatanse";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login(code) {
   const navigate = useNavigate();
 
   useEffect(() => {
