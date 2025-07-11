@@ -58,6 +58,7 @@ export const StyledInput = styled.input`
     font-size: 1rem;
     color: #1E1E1E;
     outline: none;
+    font-family: 'Paperlogy', sans-serif;
 
     &::placeholder {
         color: #B2B2B2;
