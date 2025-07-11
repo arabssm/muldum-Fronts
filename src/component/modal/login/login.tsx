@@ -4,13 +4,13 @@ import { loginModalState, whereismypasswordModalState } from '@_atom/Modal';
 import { useState } from 'react';
 import emailIcon from '@_assets/login/email.svg';
 import passwordIcon from '@_assets/login/password.svg';
-import Login from '../../../api/login.js'
-import { useNavigate } from 'react-router-dom';
+// import Login from '@_api/login'
+// import { useNavigate } from 'react-router-dom';
 import * as _ from './style';
 
 
 export default function LoginModal() {
-  const navigate=useNavigate();
+  // const navigate=useNavigate();
   const setModalOpen = useSetRecoilState(loginModalState);
   const setModalOpen1 = useSetRecoilState(whereismypasswordModalState);
   const [email, setEmail] = useState('');
@@ -23,13 +23,13 @@ export default function LoginModal() {
     e.preventDefault();
     setModalOpen(false);
     console.log(24);
-    const loginResponse = await Login({ email, password });
+    // const loginResponse = await Login({ email, password });
     
-    if (loginResponse) {
-      navigate('/');
-    } else {
-      alert('이메일이나 비밀번호가 틀렸습니다.');
-    }
+    // if (loginResponse) {
+    //   navigate('/');
+    // } else {
+    //   alert('이메일이나 비밀번호가 틀렸습니다.');
+    // }
   }
   
   return (
