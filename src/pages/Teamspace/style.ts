@@ -6,7 +6,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
     width: 80%;
-    margin-left: 20%;
+    margin-left: 22%;
     margin-top: 3%;
 `;
 

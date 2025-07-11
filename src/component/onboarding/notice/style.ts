@@ -12,7 +12,7 @@ export const Title = styled.h2`
     font-size: 1.5rem;
     color: #1d1d1d;
     margin-right: 46.2%;
-    font-weight: 500;
+    font-weight: 600;
 `;
 
 export const SearchWrapper = styled.div`

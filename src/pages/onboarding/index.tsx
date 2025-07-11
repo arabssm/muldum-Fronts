@@ -27,16 +27,18 @@ export default function Home(){
 }
 
 const Container = styled.div`
-    width: 100%;
-    margin-left: 3%;
-    margin-top: 2%;
-    overflow: auto;
+    width: 100vw;
+    margin-left: 0;
+    margin-top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 `;
 
-const King =styled.div`
+const King = styled.div`
     width: 100%;
     display: flex;
-    margin-left: 15%;
     flex-direction: column;
     gap: 3rem;
+    margin-left: 19%;
+    margin-top: 2.2%;
 `;
