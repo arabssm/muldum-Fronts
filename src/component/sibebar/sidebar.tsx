@@ -10,7 +10,9 @@ const setModalOpen = useSetRecoilState(loginModalState)
 return (
     <_.MainArea>
         {IconMenu.map((item) => {
-            const isActive = location.pathname === item.path;
+            const isActive = Array.isArray(item.path)
+            ? item.path.includes(location.pathname)
+            : location.pathname === item.path;
 
             const TagComponent =
                 item.label === '로그인'
@@ -26,7 +28,7 @@ return (
                         if (item.label === '로그인') {
                             setModalOpen(true); 
                             } else {
-                                navigate(item.path); 
+                                navigate(item.path[0]); 
                             }
                         }
                     }

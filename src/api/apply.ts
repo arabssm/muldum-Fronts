@@ -32,6 +32,18 @@ export default async function Apply(name1,number,price,link,source,reason,team_i
       throw err;
     }
   }
+  export async function getApplyall(team_id) {
+    try {
+      const res = await axiosInstance.get(`/std/items/1`);
+      if (res.status !== 200) {
+        return res.status;
+      }
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 
   export async function getMoney(team_id) {
     try {
@@ -40,6 +52,17 @@ export default async function Apply(name1,number,price,link,source,reason,team_i
         return res.status;
       }
       return res.data;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
+export async function finalapply(team_id) {
+    try {
+      const res = await axiosInstance.patch(`/std/items/1`);
+      if (res.status !== 200) {
+        return res.status;
+      }
     } catch (err) {
       console.log(err);
       throw err;

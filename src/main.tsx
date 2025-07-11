@@ -14,6 +14,7 @@ import Detail from '@_componentsOnboarding/notice/detail/detail';
 import Notice1 from '@_pages/notice/notice';
 import NotFound from '@_components/Notfound/404';
 import Object from '@_pages/object/object';
+import AllObject from '@_pages/object/allobject';
 import LoginModal from '@_components/modal/login/login';
 import PasswordModal from '@_components/modal/password/password';
 import ClubHistory from '@_pages/ClubHistory/ClubHistory';
@@ -22,7 +23,6 @@ import Teamspace from '@_pages/Teamspace/Teamspace';
 import '@_styles';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 function Main(){
 
@@ -37,6 +37,7 @@ function Main(){
         <Route path="/notice" element={<Notice1 />} /> 
         <Route path="/notice/:id" element={<Detail />} />
         <Route path='/object' element={<Object />}/> 
+        <Route path='/object/all' element={<AllObject />}/> 
         <Route path='/club-history' element={<ClubHistory />}/> 
         <Route path='/teamspace' element={<Teamspace />}/> 
         <Route path="*" element={<NotFound />} />
@@ -44,13 +45,10 @@ function Main(){
     </>
   );
 }
-const queryClient = new QueryClient();
 createRoot(document.getElementById('root')!).render(
-  <QueryClientProvider client={queryClient}>
     <RecoilRoot>
       <BrowserRouter>
         <Main />
       </BrowserRouter>
     </RecoilRoot>
-  </QueryClientProvider>
 )

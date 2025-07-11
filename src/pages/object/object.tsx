@@ -4,9 +4,10 @@ import Sidebar from '@_components/sibebar/sidebar';
 import Box from '@_components/object/box';
 import type { Request } from '@_components/object/types';
 import Apply from '../../api/apply'
-import {getApply,getMoney} from '../../api/apply'
+import {getApply,getMoney,finalapply} from '../../api/apply'
+import { useNavigate } from 'react-router-dom';
 export default function Object() {
-  
+  const nav=useNavigate();
   const [item, setItem] = useState('');
   const [price, setPrice] = useState('');
   const [link, setLink] = useState('');
@@ -38,8 +39,17 @@ export default function Object() {
     } catch (err) {
       console.error("신청 실패:", err);
     }
-    
   };
+  const finalApply= () => {
+    finalapply(1)
+    .then(() => {
+      alert('신청이 완료되었습니다.');
+      window.location.reload();
+    })
+    .catch((err) => {
+      console.log("게시물을 불러오는 데 실패했습니다.", err);
+    });
+  }
   useEffect(() => {
     getMoney(1)
     .then((data1) => {
@@ -121,7 +131,7 @@ export default function Object() {
           <_.ListSection>
             <_.ListSectionHeader>
               <_.SectionTitle>우리 팀이 신청한 물건 확인하기</_.SectionTitle>
-              <_.ApplyButton>신청하기</_.ApplyButton>
+              <_.ApplyButton onClick={() => finalApply()}>신청하기</_.ApplyButton>
             </_.ListSectionHeader>
             <_.ListWrapper>
               {requests.map(r => (
@@ -137,7 +147,7 @@ export default function Object() {
 
         <_.Footer>
           <_.FooterLink>물품 신청 가이드 보기 &gt;</_.FooterLink>
-          <_.FooterLink>전체보기</_.FooterLink>
+          <_.FooterLink onClick={()=>nav("/object/all")}>전체보기</_.FooterLink>
         </_.Footer>
       </_.Container>
     </_.PageWrapper>

@@ -15,7 +15,7 @@ export default function Box({ request, onReasonChange }: Props) {
 
   const finishEdit = () => {
     setIsEditing(false);
-    onReasonChange(request.no, reason.trim());
+    onReasonChange(request.id, reason.trim());
   };
 
   return (
