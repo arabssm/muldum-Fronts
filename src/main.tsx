@@ -5,6 +5,7 @@ import {
     Routes,
     Route
 } from "react-router-dom";
+
 import { useRecoilValue } from 'recoil'
 import { loginModalState,whereismypasswordModalState } from '@_atom/Modal'
 import {RecoilRoot} from 'recoil';
@@ -15,11 +16,16 @@ import NotFound from '@_components/Notfound/404';
 import Object from '@_pages/object/object';
 import LoginModal from '@_components/modal/login/login';
 import PasswordModal from '@_components/modal/password/password';
+import ClubHistory from '@_pages/ClubHistory/ClubHistory';
+import Teamspace from '@_pages/Teamspace/Teamspace';
+
 import '@_styles';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { QueryClientProvider, QueryClient } from 'react-query';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+
 function Main(){
+
   const isOpen = useRecoilValue(loginModalState)
   const isOpen2=useRecoilValue(whereismypasswordModalState);
   return(
@@ -31,6 +37,8 @@ function Main(){
         <Route path="/notice" element={<Notice1 />} /> 
         <Route path="/notice/:id" element={<Detail />} />
         <Route path='/object' element={<Object />}/> 
+        <Route path='/club-history' element={<ClubHistory />}/> 
+        <Route path='/teamspace' element={<Teamspace />}/> 
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

@@ -13,6 +13,8 @@ import Ccheck from '@_assets/sidebar/color-check.svg';
 import Cobject from '@_assets/sidebar/color-object.svg';
 import Calerticon from '@_assets/sidebar/color-alerticon.svg';
 import Gologin from '@_assets/sidebar/gologin.svg';
+import Teamspace from '@_icons/teamspace.svg';
+import ATeamspace from '@_icons/teamspace-active.svg';
 
 export const icons = {
   profile,
@@ -29,5 +31,7 @@ export const icons = {
   Ccheck,
   Cobject,
   Calerticon,
-  Gologin
+  Gologin,
+  Teamspace,
+  ATeamspace
 };
