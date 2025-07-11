@@ -25,9 +25,9 @@ return (
                     onClick={()=>{
                         if (item.label === '로그인') {
                             setModalOpen(true); 
-                          } else {
-                            navigate(item.path); 
-                          }
+                            } else {
+                                navigate(item.path); 
+                            }
                         }
                     }
                     isActive={isActive}
