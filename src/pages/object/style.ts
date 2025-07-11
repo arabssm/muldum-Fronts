@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 export const PageWrapper = styled.div`
     display: flex;
     height: 100vh;
-    margin-left: 3%;
+    width: 90%;
+    margin-left: 6%;
 `;
 
 export const Container = styled.div`
@@ -11,8 +12,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    margin-left: 13.75rem;
-    padding: 2rem 5%;
+    margin-left: 13rem;
+    padding: 1.5rem 5%;
     box-sizing: border-box;
 `;
 
@@ -32,8 +33,8 @@ export const Header = styled.div`
 `;
 
 export const Titles = styled.div`
-    h1 { margin: 0; font-size: 1.75rem; font-weight: 500; margin-bottom: 4%; }
-    h3 { margin: 0.25rem 0 0; font-size: 1rem; color: #666; font-weight: 400; }
+    h1 { margin: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 5%; }
+    h3 { margin: 0.25rem 0 0; font-size: 1.2rem; color: #666; font-weight: 400; }
 `;
 
 export const BudgetBox = styled.div`
@@ -41,7 +42,7 @@ export const BudgetBox = styled.div`
     background: #fff;
     padding: 0.75rem 1rem;
     border-radius: 0.75rem;
-    span { display: block; font-size: 0.875rem; color: #999; }
+    span { display: block; font-size: 1rem; color: #999; margin-bottom: 0.3rem }
     strong { display: block; font-size: 1.25rem; color: #333; margin-top: 0.25rem; }
 `;
 
@@ -53,7 +54,7 @@ export const Used = styled.span`
 `;
 
 export const SectionTitle = styled.h2`
-    font-size: 1.125rem;
+    font-size: 1.3rem;
     font-weight: 500;
 `;
 
@@ -77,7 +78,7 @@ export const AddButton = styled.button`
     padding: 0 1.25rem;
     height: 2.5rem;
     border-radius: 1.25rem;
-    font-size: 0.875rem;
+    font-size: 1rem;
     cursor: pointer;
     font-family: 'Paperlogy';
 `;
@@ -165,7 +166,7 @@ export const ApplyButton = styled.button`
     padding: 0 1.25rem;
     height: 2.5rem;
     border-radius: 1.25rem;
-    font-size: 0.875rem;
+    font-size: 1rem;
     cursor: pointer;
     font-family: 'Paperlogy';
 `;
