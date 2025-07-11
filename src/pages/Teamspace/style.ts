@@ -2,6 +2,11 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
     width: 100%;
+    width: 100vw;
+    margin-left: 0;
+    margin-top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 `;
 
 export const Wrapper = styled.div`
