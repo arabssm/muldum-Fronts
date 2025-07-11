@@ -6,6 +6,7 @@
     "baseUrl": ".",
     "paths": {
       "@_assets/*": ["src/assets/*"],
+      "@_icons/*": ["src/assets/icon/*"],
       "@_atom/*": ["src/atom/*"],
       "@_components/*": ["src/component/*"],
       "@_componentsModal/*": ["src/component/modal/*"],
