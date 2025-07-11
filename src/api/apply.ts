@@ -7,7 +7,7 @@ export default async function Apply(name1,number,price,link,source,reason,team_i
         "quantity":number,
         "price":price,
         "productLink":link,
-        "item_source":source,
+        "itemsource":source,
         "reason":reason
       });
   
@@ -22,7 +22,7 @@ export default async function Apply(name1,number,price,link,source,reason,team_i
   }
   export async function getApply(team_id) {
     try {
-      const res = await axiosInstance.get(`/std/items/1`);
+      const res = await axiosInstance.get(`/std/items/1/temp`);
       if (res.status !== 200) {
         return res.status;
       }
