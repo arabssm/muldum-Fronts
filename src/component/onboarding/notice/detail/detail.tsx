@@ -20,7 +20,7 @@ export default function Detail() {
       });
   }, []);
   let date = '';
-if (doc1?.created_at) {
+if (doc1?.createdAt) {
   const d = new Date(doc1.createdAt);
   const Y = d.getFullYear();
   const M = String(d.getMonth() + 1).padStart(2, '0');
@@ -42,7 +42,7 @@ return (
       <_.Up>
         <_.Title>{doc1?.title || '제목 없음'}</_.Title>
         <_.date>{date}</_.date>
-        <_.Subtitle>{doc1?.teacher || '작성자 없음'}</_.Subtitle>
+        <_.Subtitle>{doc1?.teacherName || '작성자 없음'}</_.Subtitle>
       </_.Up>
       <_.Body>
         {doc1?.content ? makeDocument(doc1.content) : '내용을 불러올 수 없습니다.'}

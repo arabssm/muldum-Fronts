@@ -13,6 +13,19 @@ export default async function getNotice() {
       throw err;
     }
   }
+  export async function getNoticestd(teamid) {
+    try {
+      const res = await axiosInstance.get(`/std/notice?team=${teamid}`);
+  
+      if (res.status !== 200) {
+        return res.status;
+      }
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 
 
 export async function getNoticeDetail(id) {
